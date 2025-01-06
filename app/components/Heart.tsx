@@ -1,0 +1,30 @@
+'use client';
+import React, { useState } from 'react'
+
+const Heart = () => {
+    const [heartState, setHeartState] = useState(Array(4).fill(false)); // For heart button toggle
+//   const [activeFAQ, setActiveFAQ] = useState(null); // For FAQ accordion
+
+  const toggleHeart = (index: number) => {
+    console.log('toggleLike called');
+    const newHeartState = [...heartState];
+    newHeartState[index] = !newHeartState[index];
+    setHeartState(newHeartState);
+  };
+
+  return (
+    <div>
+          {heartState.map((state, index) => (
+                <button
+                    key={index}
+                    className="heart-btn"
+                    onClick={() => toggleHeart(index)} // Pass index to the handler
+                >
+                    {state ? '♥' : '♡'}
+                </button>
+            ))}
+    </div>
+  )
+}
+
+export default Heart

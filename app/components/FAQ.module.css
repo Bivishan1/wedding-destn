@@ -1,0 +1,10 @@
+.faq-section {
+    margin-top: 40px;
+}
+.faq-section h3 {
+    margin-bottom: 20px;
+}
+.faqItem {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}

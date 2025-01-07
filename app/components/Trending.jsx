@@ -2,28 +2,10 @@
 import React, {useState} from 'react'
 import Heart from './Heart'
 import Image from 'next/image'
-import { Carousel, IconButton}  from '../MTailwind';
+import { Carousel}  from '../MTailwind';
 
 const Trending = () => {
     console.log('Trending component rendered');  
-
-    const slides = [
-        "/img/venue1.jpg",
-        "/img/venue2.jpg",
-        "/img/venue3.jpg",
-      ];
-    
-      const [activeIndex, setActiveIndex] = useState(0);
-    
-      const handleNext = () => {
-        setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
-      };
-    
-      const handlePrev = () => {
-        setActiveIndex((prevIndex) =>
-          (prevIndex - 1 + slides.length) % slides.length
-        );
-      };
 
   return (
    

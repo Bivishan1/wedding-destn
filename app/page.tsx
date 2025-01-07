@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Heart from "./components/Heart";
 import Trending from "./components/Trending";
+import NavBar from "./components/NavBar";
 // import Button from '@mui/material/Button';
 // import { Button } from "@material-tailwind/react";
 // import {Button} from "./components/MyBtn";
@@ -12,23 +13,8 @@ export default function Home() {
   return (
     <div>
       
-      <nav className="navbar">
-        <div className="logo">Destination Wedding</div>
-        <div className="menu">
-          <a href="#home">Home</a>
-          <a href="#packages">Plans</a>
-          {/* <Button className="bg-blue-500 text-white p-2 rounded">This</Button> */}
-          <a href="#destination">Destination</a>
-          <a href="#contact">Contact Us</a>
-        </div>
-        <div className="buttons">
-          <button>Get Started</button>
-          
-          <button>
-            <Image src="/img/profile.png" alt="Profile" width={40} height={20} />
-            </button>
-        </div>
-      </nav>
+      
+      <NavBar/>
 
       <section id="home" className="hero-section">
         <h1>Plan Your Destination Wedding</h1>

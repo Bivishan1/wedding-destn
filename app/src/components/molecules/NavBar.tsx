@@ -6,7 +6,7 @@ function NavBar() {
 
   return (
     <div>
-      <nav className="bg-transparent text-white fixed top-0 left-0 w-full z-50">
+      <nav className="bg-blue-gray-900 text-white fixed top-0 left-0 w-full z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Branch Section */}
@@ -17,31 +17,31 @@ function NavBar() {
             {/* Centered Menu Links */}
             <div className="hidden md:flex justify-center flex-1 space-x-8">
               <a
-                href="#"
-                className="text-white relative group hover:text-gray-300 text-lg"
+                href="#home"
+                className="text-white relative group hover:text-gray-300 text-lg active"
               >
                 Home
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </a>
               <a
-                href="#"
+                href="#packages"
                 className="text-white hover:text-gray-300 text-lg relative group"
               >
-                About
+                Plans
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </a>
               <a
-                href="#"
+                href="#destination"
                 className="text-white hover:text-gray-300 text-lg relative group"
               >
-                Services
+                Destination
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </a>
               <a
-                href="#"
+                href="#contact"
                 className="text-white hover:text-gray-300 text-lg relative group"
               >
-                Contact
+                Contact Us
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </a>
             </div>
@@ -145,28 +145,28 @@ function NavBar() {
           <div className="md:hidden bg-gray-800">
             <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
               <a
-                href="#"
+                href="#home"
                 className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700"
               >
                 Home
               </a>
               <a
-                href="#"
+                href="#packages"
                 className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700"
               >
-                About
+                Plans
               </a>
               <a
-                href="#"
+                href="#destination"
                 className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700"
               >
-                Services
+                Destination
               </a>
               <a
-                href="#"
+                href="#contact"
                 className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700"
               >
-                Contact
+                Contact Us
               </a>
               <button className="block w-full text-left px-3 py-2 bg-gray-800 text-white text-base font-medium hover:bg-gray-700">
                 Profile

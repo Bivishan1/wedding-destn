@@ -45,50 +45,15 @@ body {
   font-family: Arial, sans-serif;
   overflow-x: hidden;
 }
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 20px;
-  color: white;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-.navbar a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-}
-.navbar a:hover {
-  text-decoration: underline;
-}
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-.navbar .buttons {
-  display: flex;
-  align-items: center;
-}
-.navbar .buttons button {
-  background-color: darkred;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  margin-left: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.navbar .buttons button:hover {
-  background-color: red;
-}
 .hero-section {
-  position: relative;
+ position: relative;
+ top: 0rem; /* Match navbar height */
   background: url('/img/wed.jpg') no-repeat center center;
   background-size: cover;
-  height: 125vh;
+  height: 120vh; /* Full viewport height minus navbar height */
+  
+  margin-top:4rem;
+  padding-top:4rem;
   color: white;
   display: flex;
   flex-direction: column;
@@ -96,6 +61,7 @@ body {
   align-items: center;
   text-align: center;
 }
+
 .hero-section h1 {
   font-size: 3rem;
   margin-bottom: 20px;

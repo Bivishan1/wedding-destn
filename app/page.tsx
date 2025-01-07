@@ -1,14 +1,14 @@
 import Image from "next/image";
-import Heart from "./components/Heart";
-import Trending from "./components/Trending";
-import NavBar from "./components/NavBar";
+import Heart from "./src/components/atoms/Heart";
+import Trending from "./src/components/molecules/Trending";
+import NavBar from "./src/components/molecules/NavBar";
 // import Button from '@mui/material/Button';
 // import { Button } from "@material-tailwind/react";
 // import {Button} from "./components/MyBtn";
 // import { Button}  from './MTailwind';
 
 // import Trending from "./components/Trending";
-import FAQ from "./components/FAQ";
+import FAQ from "./src/components/molecules/FAQ";
 export default function Home() {
   return (
     <div>

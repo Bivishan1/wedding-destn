@@ -1,11 +1,10 @@
 'use client';
-import React, {useState} from 'react'
-import Heart from './Heart'
-import Image from 'next/image'
-import { Carousel}  from '../MTailwind';
+import React from 'react'
+import { Carousel}  from '../../../MTailwind';
+
 
 const Trending = () => {
-    console.log('Trending component rendered');  
+    console.log('hTrending component rendered');  
 
   return (
    

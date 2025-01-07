@@ -1,6 +1,6 @@
 'use client';
 import React from 'react'
-import { Carousel}  from '../../../MTailwind';
+import { Carousel}  from '../../../src/MTailwind';
 
 
 const Trending = () => {

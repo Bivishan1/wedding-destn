@@ -13,7 +13,7 @@ const Heart = () => {
   };
 
   return (
-    <div>
+    <>
           {heartState.map((state, index) => (
                 <button
                     key={index}
@@ -23,7 +23,7 @@ const Heart = () => {
                     {state ? '♥' : '♡'}
                 </button>
             ))}
-    </div>
+    </>
   )
 }
 

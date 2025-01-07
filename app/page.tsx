@@ -44,7 +44,7 @@ export default function Home() {
         <div className="trending-grid">
           {['Chandragiri Resort', 'Venue 1', 'Venue 2', 'Venue 3'].map((title, index) => (
            <div key={index} className="destination-card">
-           <div className="image-wrapper">
+           <div className="destination">
              <Trending />
              <Heart />
            </div>

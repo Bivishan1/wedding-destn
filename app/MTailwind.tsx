@@ -1,3 +1,3 @@
 'use client';
 
-export { Button, Carousel   } from '@material-tailwind/react';
+export { Button, Carousel, IconButton   } from '@material-tailwind/react';

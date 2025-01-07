@@ -15,6 +15,18 @@
   
 }
 
+/* .carousel {
+  @apply relative h-full w-full;
+}
+
+.carousel-item {
+  @apply h-full w-full;
+}
+
+img {
+  @apply max-w-full h-auto;
+} */
+
 body {
   color: var(--foreground);
   background: var(--background);

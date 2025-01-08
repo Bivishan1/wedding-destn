@@ -14,9 +14,16 @@ export default function Home() {
     <div>
       <NavBar />
 
-      <section id="home" className="hero-section">
-        <h1>Plan Your Destination Wedding</h1>
-        <button className="btn">See Plans</button>
+      <section
+        id="home"
+        className="hero-section relative top-0 bg-[url('/img/wed.jpg')] bg-no-repeat bg-center bg-cover h-[120vh] mt-16 pt-16 text-white flex flex-col justify-center items-center text-center"
+      >
+        <h2 className="text-6xl font-light mb-5">
+          Plan Your Destination Wedding
+        </h2>
+        <button className="text-white border-none px-5 py-4 rounded cursor-pointer hover:bg-red-500 bg-red-900">
+          See Plans
+        </button>
       </section>
 
       <main className="info flex flex-col md:flex-row w-[90%] gap-16 mx-auto mt-20">
@@ -63,16 +70,21 @@ export default function Home() {
       </main>
 
       <div id="destination" className="container h-2/4">
-        <div className="header">
+        <div className="header mb-5 flex justify-between items-center">
           <h2 className="text-4xl">Top Trending Wedding Destinations</h2>
-          <button className="view-all">View all</button>
+          <button className="view-all bg-none border-none text-red-800 cursor-pointer">
+            View all
+          </button>
         </div>
 
         <div className="trending-grid">
           {["Chandragiri Resort", "Venue 1", "Venue 2", "Venue 3"].map(
             (title, index) => (
-              <div key={index} className="destination-card">
-                <div className="destination">
+              <div
+                key={index}
+                className="destination-card flex flex-col items-center rounded-lg overflow-hidden shadow-md bg-white"
+              >
+                <div className="destination w-full relative bg-[#f0f0f0] rounded-2xl">
                   <Trending />
                   <Heart />
                 </div>
@@ -107,19 +119,19 @@ export default function Home() {
         </div>
       </div>
 
+      <section id="packages" className="section container">
+        <h2 >Packages</h2>
+        <h3 className="text-center">Pick the plans that right for you!</h3>
+        <div className="packages-info">
+          <div className="package">Premium</div>
+          <div className="package">Standard</div>
+          <div className="package">Basic</div>
+        </div>
+      </section>
       <section className="cta">
         <div className="cta-content">
           <h1>Customize yours</h1>
           <button className="plan-button">Plan With Us</button>
-        </div>
-      </section>
-
-      <section id="packages" className="section">
-        <h2 style={{ textAlign: "center" }}>Packages</h2>
-        <div className="packages">
-          <div className="package">Premium</div>
-          <div className="package">Standard</div>
-          <div className="package">Basic</div>
         </div>
       </section>
 

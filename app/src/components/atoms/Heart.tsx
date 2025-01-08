@@ -17,7 +17,7 @@ const Heart = () => {
           {heartState.map((state, index) => (
                 <button
                     key={index}
-                    className="heart-btn"
+                    className="heart-btn absolute top-2 right-2 bg-none border-none cursor-pointer text-white text-2xl"
                     onClick={() => toggleHeart(index)} // Pass index to the handler
                 >
                     {state ? '♥' : '♡'}

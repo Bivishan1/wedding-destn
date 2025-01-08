@@ -1,8 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import Link from "next/link";
+import React, { useState, useEffect ,useRef } from "react";
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false); // For profile dropdown
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: { target: unknown; }) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsProfileOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }  ,[])
 
   return (
     <div>
@@ -71,7 +87,7 @@ function NavBar() {
                   />
                 </svg>
                 {isProfileOpen && (
-                  <div className="absolute right-0 mt-4 w-48 bg-gray-800 rounded-md shadow-lg transition">
+                  <div className="absolute right-0 mt-4 w-48 bg-gray-800 rounded-md shadow-lg transition" ref={dropdownRef}>
                     <a
                       href="#"
                       className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
@@ -84,12 +100,12 @@ function NavBar() {
                     >
                       Settings
                     </a>
-                    <a
-                      href="#"
+                    <Link
+                      href="/login"
                       className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
                     >
-                      Logout
-                    </a>
+                      LogIn
+                    </Link>
                   </div>
                 )}
               </button>

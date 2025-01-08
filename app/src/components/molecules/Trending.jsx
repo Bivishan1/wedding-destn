@@ -4,7 +4,7 @@ import { Carousel}  from '../../../src/MTailwind';
 
 
 const Trending = () => {
-    console.log('hTrending component rendered');  
+
 
   return (
    

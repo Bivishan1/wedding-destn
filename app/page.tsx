@@ -12,50 +12,98 @@ import FAQ from "./src/components/molecules/FAQ";
 export default function Home() {
   return (
     <div>
-      
-      
-      <NavBar/>
+      <NavBar />
 
       <section id="home" className="hero-section">
         <h1>Plan Your Destination Wedding</h1>
         <button className="btn">See Plans</button>
       </section>
 
-      <div id="destination" className="container">
+      <main className="info flex flex-col md:flex-row w-[90%] gap-16 mx-auto mt-20">
+        <div className="info-first flex-1">
+          {/* text-info-first */}
+          <h3 className="font-semibold text-3xl mb-8">Your Destination</h3>
+
+          <div className="text-info flex gap-16 ml-[-20px]">
+            <p className="text-sm w-[50%] text-justify flex">
+              <span className="mr-3"> ● </span>
+              Nepal is home to stunning landscapes, from the snow-capped peaks
+              of the Himalayas to lush green valleys and serene lakes.
+            </p>
+
+            <p className="text-sm w-[40%] text-justify flex">
+              <span className="mr-3"> ● </span>
+              Nepal is an enchanting and unique destination for a wedding,
+              offering a blend of natural beauty, rich culture, and spiritual
+              significance.
+            </p>
+          </div>
+          {/* text-info-first end */}
+        </div>
+        <div className="info-second flex-1">
+          <div className="flex mt-7 gap-16">
+            <p className="text-sm w-[50%] text-justify flex">
+              <span className="mr-3"> ● </span>
+              With its combination of natural wonders, cultural richness,
+              affordability, and hospitality, Nepal offers a wedding experience
+              like no other, making it the perfect destination for couples
+              seeking a unique and unforgettable celebration of love.
+            </p>
+
+            <p className="text-sm w-[50%] text-justify flex">
+              <span className="mr-3"> ● </span>
+              Our website provides everything for your dream wedding
+              abroad—curated packages, beautiful venues, trusted vendors, travel
+              support, and planning tools. Enjoy seamless coordination, legal
+              guidance, and 24/7 customer support. Let us make your wedding
+              unforgettable!
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <div id="destination" className="container h-2/4">
         <div className="header">
-          <h2>Top Trending Wedding Destinations</h2>
+          <h2 className="text-4xl">Top Trending Wedding Destinations</h2>
           <button className="view-all">View all</button>
         </div>
 
         <div className="trending-grid">
-          {['Chandragiri Resort', 'Venue 1', 'Venue 2', 'Venue 3'].map((title, index) => (
-           <div key={index} className="destination-card">
-           <div className="destination">
-             <Trending />
-             <Heart />
-           </div>
-           <div className="card-content">
-             <h3>{title}</h3>
-             <p>Description</p>
-           </div>
-         </div>
-           
-          ))}
-          </div>
-        
+          {["Chandragiri Resort", "Venue 1", "Venue 2", "Venue 3"].map(
+            (title, index) => (
+              <div key={index} className="destination-card">
+                <div className="destination">
+                  <Trending />
+                  <Heart />
+                </div>
+                <div className="card-content">
+                  <h3>{title}</h3>
+                  <p>Description</p>
+                </div>
+              </div>
+            )
+          )}
+        </div>
 
         {/* <div className="trending-grid">
           <Trending/>
         </div> */}
 
-        <h2>Top selection</h2>
+        <h2 className="text-4xl">Top selection</h2>
         <div className="selection-grid">
-          {['Destination', 'Decoration', 'Food', 'Mocktail/Cocktail'].map((category, index) => (
-            <div key={index} className="selection-card">
-              <Image src={`/img/venue${index + 1}.jpg`} alt={category} width={300} height={200} />
-              <p>{category}</p>
-            </div>
-          ))}
+          {["Destination", "Decoration", "Food", "Mocktail/Cocktail"].map(
+            (category, index) => (
+              <div key={index} className="selection-card">
+                <Image
+                  src={`/img/venue${index + 1}.jpg`}
+                  alt={category}
+                  width={300}
+                  height={200}
+                />
+                <p>{category}</p>
+              </div>
+            )
+          )}
         </div>
       </div>
 
@@ -67,7 +115,7 @@ export default function Home() {
       </section>
 
       <section id="packages" className="section">
-        <h2 style={{ textAlign: 'center' }}>Packages</h2>
+        <h2 style={{ textAlign: "center" }}>Packages</h2>
         <div className="packages">
           <div className="package">Premium</div>
           <div className="package">Standard</div>
@@ -84,14 +132,18 @@ export default function Home() {
             <h3 className="mb-10">Commonly asked questions</h3>
             <div className="faq-item border-b border-b-white mb-5">
               <div className="faq-question faq-question py-4 flex justify-between items-center cursor-pointer">
-                <FAQ/>
+                <FAQ />
               </div>
             </div>
-            
           </div>
         </div>
         <div className="customize-image">
-          <Image src="/img/customize-wedding.jpg" alt="Customized Wedding" width={600} height={400} />
+          <Image
+            src="/img/customize-wedding.jpg"
+            alt="Customized Wedding"
+            width={600}
+            height={400}
+          />
         </div>
       </div>
 
@@ -120,12 +172,39 @@ export default function Home() {
             <a href="#">Accessibility</a>
           </div>
         </div>
-        <div style={{ textAlign: 'center', padding: '20px', borderTop: '1px solid #eee' }}>
+        <div
+          style={{
+            textAlign: "center",
+            padding: "20px",
+            borderTop: "1px solid #eee",
+          }}
+        >
           <p>Connect with us</p>
           <div className="social-links">
-            <a href="#"><Image src="/img/facebook.png" alt="Facebook" width={24} height={24} /></a>
-            <a href="#"><Image src="/img/instagram.jpg" alt="Instagram" width={24} height={24} /></a>
-            <a href="#"><Image src="/img/linkedin.png" alt="LinkedIn" width={24} height={24} /></a>
+            <a href="#">
+              <Image
+                src="/img/facebook.png"
+                alt="Facebook"
+                width={24}
+                height={24}
+              />
+            </a>
+            <a href="#">
+              <Image
+                src="/img/instagram.jpg"
+                alt="Instagram"
+                width={24}
+                height={24}
+              />
+            </a>
+            <a href="#">
+              <Image
+                src="/img/linkedin.png"
+                alt="LinkedIn"
+                width={24}
+                height={24}
+              />
+            </a>
           </div>
         </div>
       </footer>

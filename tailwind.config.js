@@ -8,7 +8,13 @@ export default withMT({
     "./node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx,mdx}", // Material Tailwind theme
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        // 'figma': "url('img/figma.png')",
+        'figma1': "url('/img/figma1.png')",
+        'hero': "url('/img/wed.jpg')"
+      },
+    },
   },
   plugins: [],
 });

@@ -1,7 +1,9 @@
+
 import Image from "next/image";
 import Heart from "./src/components/atoms/Heart";
 import Trending from "./src/components/molecules/Trending";
 import NavBar from "./src/components/molecules/NavBar";
+import Packages from "./src/components/molecules/Packages";
 // import Button from '@mui/material/Button';
 // import { Button } from "@material-tailwind/react";
 // import {Button} from "./components/MyBtn";
@@ -16,7 +18,7 @@ export default function Home() {
 
       <section
         id="home"
-        className="hero-section relative top-0 bg-[url('/img/wed.jpg')] bg-no-repeat bg-center bg-cover h-[120vh] mt-16 pt-16 text-white flex flex-col justify-center items-center text-center"
+        className="hero-section relative top-0 bg-hero bg-no-repeat bg-center bg-cover h-[120vh] mt-16 pt-16 text-white flex flex-col justify-center items-center text-center"
       >
         <h2 className="text-6xl font-light mb-5">
           Plan Your Destination Wedding
@@ -119,15 +121,7 @@ export default function Home() {
         </div>
       </div>
 
-      <section id="packages" className="section container">
-        <h2 >Packages</h2>
-        <h3 className="text-center">Pick the plans that right for you!</h3>
-        <div className="packages-info">
-          <div className="package">Premium</div>
-          <div className="package">Standard</div>
-          <div className="package">Basic</div>
-        </div>
-      </section>
+     <Packages/>
       <section className="cta">
         <div className="cta-content">
           <h1>Customize yours</h1>

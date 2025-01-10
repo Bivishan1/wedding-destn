@@ -1,9 +1,10 @@
-
 import Image from "next/image";
 import Heart from "./src/components/atoms/Heart";
 import Trending from "./src/components/molecules/Trending";
 import NavBar from "./src/components/molecules/NavBar";
 import Packages from "./src/components/molecules/Packages";
+import Footer from "./src/components/organisms/Footer";
+import GoToTop from "./src/components/atoms/GoToTop";
 // import Button from '@mui/material/Button';
 // import { Button } from "@material-tailwind/react";
 // import {Button} from "./components/MyBtn";
@@ -12,6 +13,7 @@ import Packages from "./src/components/molecules/Packages";
 // import Trending from "./components/Trending";
 import FAQ from "./src/components/molecules/FAQ";
 export default function Home() {
+  
   return (
     <div>
       <NavBar />
@@ -24,7 +26,7 @@ export default function Home() {
           Plan Your Destination Wedding
         </h2>
         <button className="text-white border-none px-5 py-4 rounded cursor-pointer hover:bg-red-500 bg-red-900">
-          See Plans
+          <a href="#packages"> See Plans</a>
         </button>
       </section>
 
@@ -121,7 +123,7 @@ export default function Home() {
         </div>
       </div>
 
-     <Packages/>
+      <Packages />
       <section className="cta">
         <div className="cta-content">
           <h1>Customize yours</h1>
@@ -129,91 +131,31 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="customize-section">
-        <div className="customize-text">
-          <h2>Plan your wedding with sweeter memories and better view.</h2>
-          <p>We intertwine tradition and adventure.</p>
-
-          <div className="faq-section mt-20">
-            <h3 className="mb-10">Commonly asked questions</h3>
-            <div className="faq-item border-b border-b-white mb-5">
-              <div className="faq-question faq-question py-4 flex justify-between items-center cursor-pointer">
-                <FAQ />
-              </div>
+      <div className="section p-10 mt-7">
+        <div className="flex gap-[20%] justify-center items-center h-80">
+          <div className="text-info w-2/5 text-4xl">
+              <p>Plan your wedding with sweeter memories and better view.
+          We intertwine tradition and adventure.</p>
+          </div>
+       
+          <Image
+          className="w-2/5 h-[120%]"
+            src="/img/coswed.png"
+            alt="Customized Wedding"
+            width={450} height={350}
+          />
+        </div>
+        <div className="faq-section mt-20">
+          <h3 className="mb-10">Commonly asked questions</h3>
+          <div className="faq-item border-b border-b-white mb-5">
+            <div className="faq-question faq-question py-4 flex justify-between items-center cursor-pointer">
+              <FAQ />
             </div>
           </div>
         </div>
-        <div className="customize-image">
-          <Image
-            src="/img/customize-wedding.jpg"
-            alt="Customized Wedding"
-            width={600}
-            height={400}
-          />
-        </div>
       </div>
-
-      <footer id="contact">
-        <div className="footer-info">
-          <div className="footer-column">
-            <h4>LOGO</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-          </div>
-          <div className="footer-column">
-            <h4>Quick Links</h4>
-            <a href="#">Home</a>
-            <a href="#">Destination</a>
-            <a href="#">Contact</a>
-            <a href="#">Plan</a>
-          </div>
-          <div className="footer-column">
-            <h4>Get in touch</h4>
-            <p>Call: +977 9841234567</p>
-            <p>Email: support@venue.com</p>
-          </div>
-          <div className="footer-column">
-            <h4>Legal</h4>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-            <a href="#">Accessibility</a>
-          </div>
-        </div>
-        <div
-          style={{
-            textAlign: "center",
-            padding: "20px",
-            borderTop: "1px solid #eee",
-          }}
-        >
-          <p>Connect with us</p>
-          <div className="social-links">
-            <a href="#">
-              <Image
-                src="/img/facebook.png"
-                alt="Facebook"
-                width={24}
-                height={24}
-              />
-            </a>
-            <a href="#">
-              <Image
-                src="/img/instagram.jpg"
-                alt="Instagram"
-                width={24}
-                height={24}
-              />
-            </a>
-            <a href="#">
-              <Image
-                src="/img/linkedin.png"
-                alt="LinkedIn"
-                width={24}
-                height={24}
-              />
-            </a>
-          </div>
-        </div>
-      </footer>
+<GoToTop/>
+      <Footer/>
     </div>
   );
 }

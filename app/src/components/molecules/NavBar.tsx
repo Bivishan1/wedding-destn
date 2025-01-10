@@ -22,7 +22,7 @@ function NavBar() {
 
   return (
     <div>
-      <nav className="bg-blue-gray-900 text-white fixed top-0 left-0 w-full z-50">
+      <nav className="bg-gray-500 font-normal text-black fixed top-0 left-0 w-full z-50 border border-red-600 rounded-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Branch Section */}
@@ -34,28 +34,28 @@ function NavBar() {
             <div className="hidden md:flex justify-center flex-1 space-x-8">
               <a
                 href="#home"
-                className="text-white relative group hover:text-gray-300 text-lg active"
+                className=" relative group hover:text-gray-300 text-lg active"
               >
                 Home
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </a>
               <a
                 href="#packages"
-                className="text-white hover:text-gray-300 text-lg relative group"
+                className=" hover:text-gray-300 text-lg relative group"
               >
                 Plans
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </a>
               <a
                 href="#destination"
-                className="text-white hover:text-gray-300 text-lg relative group"
+                className=" hover:text-gray-300 text-lg relative group"
               >
                 Destination
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </a>
               <a
                 href="#contact"
-                className="text-white hover:text-gray-300 text-lg relative group"
+                className=" hover:text-gray-300 text-lg relative group"
               >
                 Contact Us
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>

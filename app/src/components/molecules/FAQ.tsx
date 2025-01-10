@@ -1,6 +1,8 @@
 'use client';
 import React from 'react'
 import { useState } from 'react';
+import { UpIcon } from "../../icons";
+import { DownIcon } from "../../icons";
 // import styles from "./FAQ.module.css";
 
 const FAQ = () => {
@@ -29,7 +31,7 @@ const FAQ = () => {
                 {/* Accordion Header */}
                 <div className="faq-question flex justify-between items-center py-4 cursor-pointer" onClick={() => toggleFAQ(index)}>
                 <h5 className="font-semibold">{item.question}</h5>
-                <span className="text-xl">{activeFAQ === index ? '-' : '+'}</span>
+                <span className="text-xl">{activeFAQ === index ? <DownIcon/> : <UpIcon/>}</span>
                 </div>
                 {/* smooth transition */}
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${

@@ -34,31 +34,31 @@ function NavBar() {
             <div className="hidden md:flex justify-center flex-1 space-x-8">
               <a
                 href="#home"
-                className=" relative group hover:text-gray-300 text-lg active"
+                className=" relative group text-lg active"
               >
                 Home
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </a>
               <a
                 href="#packages"
-                className=" hover:text-gray-300 text-lg relative group"
+                className="  text-lg relative group"
               >
                 Plans
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </a>
               <a
                 href="#destination"
-                className=" hover:text-gray-300 text-lg relative group"
+                className="  text-lg relative group"
               >
                 Destination
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </a>
               <a
                 href="#contact"
-                className=" hover:text-gray-300 text-lg relative group"
+                className="  text-lg relative group"
               >
                 Contact Us
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </a>
             </div>
 

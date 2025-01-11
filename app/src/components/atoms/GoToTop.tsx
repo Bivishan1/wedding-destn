@@ -29,7 +29,7 @@ const GoToTop = () => {
         {showGoToTop && (
         <button
           onClick={scrollToTop}
-          className={`fixed bottom-5 right-5 bg-red-900 text-white p-3 rounded-full shadow-lg hover:bg-red-500 transition-opacity duration-300 ${showGoToTop ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+          className={`fixed bottom-5 right-5 bg-red-900 text-white p-3 rounded-full shadow-xl hover:bg-red-500 transition-opacity duration-300 ${showGoToTop ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             >
           ↑ Top
         </button>

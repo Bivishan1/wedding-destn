@@ -13,29 +13,35 @@ import GoToTop from "./src/components/atoms/GoToTop";
 // import Trending from "./components/Trending";
 import FAQ from "./src/components/molecules/FAQ";
 export default function Home() {
-  
   return (
     <div>
       <NavBar />
 
-      <section
+      <main
         id="home"
-        className="hero-section relative top-0 bg-hero bg-no-repeat bg-center bg-cover h-[120vh] mt-16 pt-16 text-white flex flex-col justify-center items-center text-center"
+        className="relative top-0 bg-hero bg-no-repeat bg-center 
+        bg-cover h-[120vh] mt-16 pt-16 text-white flex flex-col 
+        justify-center items-center text-center mx-auto 
+        px-4 sm:px-6 lg:px-8 py-12 lg:py-20"
       >
-        <h2 className="text-6xl font-light mb-5">
-          Plan Your Destination Wedding
-        </h2>
-        <button className="text-white border-none px-5 py-4 rounded cursor-pointer hover:bg-red-500 bg-red-900">
-          <a href="#packages"> See Plans</a>
-        </button>
-      </section>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center space-y-6">
+            <h2 className="text-6xl mb-5 sm:text-4xl lg:text-5xl font-bold leading-tight">
+              Plan Your Destination Wedding
+            </h2>
+            <button className="text-white border-none px-5 py-4 rounded cursor-pointer hover:bg-red-500 bg-red-900">
+              <a href="#packages"> See Plans</a>
+            </button>
+          </div>
+        </div>
+      </main>
 
-      <main className="info flex flex-col md:flex-row w-[90%] gap-16 mx-auto mt-20">
+      <section className="info flex flex-col md:flex-row w-[93%] gap-16 mx-auto mt-20">
         <div className="info-first flex-1">
           {/* text-info-first */}
           <h3 className="font-semibold text-3xl mb-8">Your Destination</h3>
 
-          <div className="text-info flex gap-16 ml-[-20px]">
+          <div className="text-info flex gap-16">
             <p className="text-sm w-[50%] text-justify flex">
               <span className="mr-3"> ● </span>
               Nepal is home to stunning landscapes, from the snow-capped peaks
@@ -71,9 +77,10 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </main>
+      </section>
 
-      <div id="destination" className="container h-2/4">
+      <div id="destination" className="container h-2/4 mx-auto px-4 sm:px-6 lg:px-5 py-12">
+      <div className="max-w-7xl mx-auto">
         <div className="header mb-5 flex justify-between items-center">
           <h2 className="text-4xl">Top Trending Wedding Destinations</h2>
           <button className="view-all bg-none border-none text-red-800 cursor-pointer">
@@ -81,7 +88,7 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="trending-grid">
+        <div className="trending-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {["Chandragiri Resort", "Venue 1", "Venue 2", "Venue 3"].map(
             (title, index) => (
               <div
@@ -100,17 +107,18 @@ export default function Home() {
             )
           )}
         </div>
+        </div>
 
         {/* <div className="trending-grid">
           <Trending/>
         </div> */}
 
         <h2 className="text-4xl">Top selection</h2>
-        <div className="selection-grid">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10 mb-10">
           {["Destination", "Decoration", "Food", "Mocktail/Cocktail"].map(
             (category, index) => (
-              <div key={index} className="selection-card">
-                <Image
+              <div key={index} className="bg-gray-200 p-4 rounded-lg text-center h-[fit-content]">
+                <Image className="w-full object-cover rounded-lg mb-2"
                   src={`/img/venue${index + 1}.jpg`}
                   alt={category}
                   width={300}
@@ -131,18 +139,21 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="section p-10 mt-7">
-        <div className="flex gap-[20%] justify-center items-center h-80">
-          <div className="text-info w-2/5 text-4xl">
-              <p>Plan your wedding with sweeter memories and better view.
-          We intertwine tradition and adventure.</p>
+      <div className="container plan-info mt-7">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 py-10 h-auto">
+          <div className="text-info w-full sm:w-3/4 md:w-2/4 lg:w-2/4 text-2xl overflow-hidden break-words">
+            <p className="text-3xl">
+              Plan your wedding with sweeter memories and better view. We
+              intertwine tradition and adventure.
+            </p>
           </div>
-       
+
           <Image
-          className="w-2/5 h-[120%]"
+            className="w-full md:w-1/3 lg:w-1/3 sm:w-2/4 "
             src="/img/coswed.png"
             alt="Customized Wedding"
-            width={450} height={350}
+            width={450}
+            height={250}
           />
         </div>
         <div className="faq-section mt-20">
@@ -154,8 +165,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-<GoToTop/>
-      <Footer/>
+      <GoToTop />
+      <Footer />
     </div>
   );
 }

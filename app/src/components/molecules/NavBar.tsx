@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import React, { useState, useEffect ,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false); // For profile dropdown
@@ -21,8 +22,8 @@ function NavBar() {
   }  ,[])
 
   return (
-    <div>
-      <nav className="bg-gray-500 font-normal text-black fixed top-0 left-0 w-full z-50 border border-red-600 rounded-sm">
+    <div className="relative">
+      <nav className="bg-gray-500 font-normal text-black fixed top-0 left-0 w-screen z-50 border border-red-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Branch Section */}
@@ -115,7 +116,7 @@ function NavBar() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+                className="inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-600 focus:outline-none"
               >
                 <span className="sr-only">Open main menu</span>
                 {isOpen ? (
@@ -157,39 +158,51 @@ function NavBar() {
         </div>
 
         {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden bg-gray-800">
-            <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+        <div 
+          className={`md:hidden fixed top-16 left-0 w-full transform ${
+            isOpen ? 'translate-x-0' : '-translate-x-full'
+          } transition-transform duration-300 ease-in-out`}
+        >
+          <div className="bg-gray-800 shadow-lg">
+            <div className="px-2 pt-2 pb-3 space-y-1">
               <a
                 href="#home"
-                className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700"
+                className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700 rounded-md"
+                onClick={() => setIsOpen(false)}
               >
                 Home
               </a>
               <a
                 href="#packages"
-                className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700"
+                className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700 rounded-md"
+                onClick={() => setIsOpen(false)}
               >
                 Plans
               </a>
               <a
                 href="#destination"
-                className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700"
+                className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700 rounded-md"
+                onClick={() => setIsOpen(false)}
               >
                 Destination
               </a>
               <a
                 href="#contact"
-                className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700"
+                className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700 rounded-md"
+                onClick={() => setIsOpen(false)}
               >
                 Contact Us
               </a>
-              <button className="block w-full text-left px-3 py-2 bg-gray-800 text-white text-base font-medium hover:bg-gray-700">
-                Profile
-              </button>
+              <Link
+                href="/login"
+                className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700 rounded-md"
+                onClick={() => setIsOpen(false)}
+              >
+                Login
+              </Link>
             </div>
           </div>
-        )}
+        </div>
       </nav>
     </div>
   );

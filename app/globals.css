@@ -30,6 +30,13 @@
   }
 }
 
+@layer components {
+  .container {
+    @apply mx-auto;
+    max-width: 1240px;
+  }
+}
+
 /* .carousel {
   @apply relative h-full w-full;
 }
@@ -62,8 +69,8 @@ body {
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  /* max-width: 1200px; */
+  /* margin: 0 auto; */
   padding: 20px;
 }
 
@@ -73,7 +80,7 @@ body {
   gap: 20px;
   margin-bottom: 40px;
 }
-.selection-grid {
+/* .selection-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -91,7 +98,7 @@ body {
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
-}
+} */
 .cta {
   background-image: url('/img/costumize.jpg');
   background-size:cover;

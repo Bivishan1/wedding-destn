@@ -24,9 +24,9 @@ const Packages = () => {
         <h3 className="text-center text-2xl mb-12">
           Pick the plans that right for you!
         </h3>
-        <div className="flex justify-center align-middle m-auto gap-10">
+        <div className="flex flex-wrap justify-center align-middle m-auto gap-10">
           {packages.map((pack, index) => (
-            <div key={index} className="bg-blue-gray-50 w-1/4 rounded-md p-3">
+            <div key={index} className="bg-blue-gray-50 rounded-md p-3 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
               <div className="packages">
                 <p className="package bg-red-500 hover:bg-red-400 p-5 rounded-md text-center text-white font-light text-2xl">
                   {pack}

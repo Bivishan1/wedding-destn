@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 // import theme from '../theme';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'; // Import AppRouterCacheProvider
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter"; // Import AppRouterCacheProvider
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,18 +24,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log('Layout component rendered');
+  console.log("Layout component rendered");
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      ><AppRouterCacheProvider>
-      {/* CssBaseline helps normalize the CSS */}
-      
-        {children}
-      
-      {}
-    </AppRouterCacheProvider>
+      >
+        <AppRouterCacheProvider>
+          {/* CssBaseline helps normalize the CSS */}
+
+          {children}
+
+          {}
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

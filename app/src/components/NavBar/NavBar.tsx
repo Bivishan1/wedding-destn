@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef } from "react";
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false); // For profile dropdown
+  const [isScrolled, setIsScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -14,16 +15,27 @@ function NavBar() {
       }
     };
 
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
     };
   }  ,[])
 
   return (
     <div className="relative">
-      <nav className="bg-gray-500 font-normal text-black fixed top-0 left-0 w-screen z-50 border border-red-600">
+      <nav className={`font-normal text-white fixed top-0 left-0 w-screen z-50 border border-red-600 transition-all duration-300
+        ${isScrolled ? 'bg-[rgb(241,130,130)]/95 shadow-lg backdrop-blur-sm' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Branch Section */}

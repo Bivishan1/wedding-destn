@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Heart from "./src/components/atoms/Heart";
 import Trending from "./src/components/molecules/Trending";
-import NavBar from "./src/components/molecules/NavBar";
+import NavBar from "./src/components/NavBar/NavBar";
 import Packages from "./src/components/molecules/Packages";
 import Footer from "./src/components/organisms/Footer";
 import GoToTop from "./src/components/atoms/GoToTop";
@@ -11,7 +11,7 @@ import GoToTop from "./src/components/atoms/GoToTop";
 // import { Button}  from './MTailwind';
 
 // import Trending from "./components/Trending";
-import FAQ from "./src/components/molecules/FAQ";
+import FAQ from "./src/components/FAQ/FAQ";
 export default function Home() {
   return (
     <div>
@@ -20,13 +20,13 @@ export default function Home() {
       <main
         id="home"
         className="relative top-0 bg-hero bg-no-repeat bg-center 
-        bg-cover h-[120vh] mt-16 pt-16 text-white flex flex-col 
+        bg-cover h-[120vh] flex flex-col 
         justify-center items-center text-center mx-auto 
         px-4 sm:px-6 lg:px-8 py-12 lg:py-20"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-6">
-            <h2 className="text-6xl mb-5 sm:text-4xl lg:text-5xl font-bold leading-tight">
+            <h2 className="text-6xl mb-5 sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
               Plan Your Destination Wedding
             </h2>
             <button className="text-white border-none px-5 py-4 rounded cursor-pointer hover:bg-red-500 bg-red-900">
@@ -97,7 +97,7 @@ export default function Home() {
               >
                 <div className="destination w-full relative bg-[#f0f0f0] rounded-2xl">
                   <Trending />
-                  <Heart />
+                  <Heart className="cursor-pointer" />
                 </div>
                 <div className="card-content">
                   <h3>{title}</h3>

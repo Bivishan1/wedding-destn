@@ -19,9 +19,15 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       backgroundImage: {
+        'figma': "url('/img/figma.png')",
         'figma1': "url('/img/figma1.png')",
         'hero': "url('/img/wed.jpg')"
       },
+      backgroundSize: {
+        'custom': '100% 100%', // Customize width here
+        'custom-auto': '100% auto', // width auto-height
+        'custom-half': '100% 75%', // half-width full-height
+      }
     },
   },
   plugins: [aspectRatio],

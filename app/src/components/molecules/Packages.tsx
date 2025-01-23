@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { UpIcon } from "../../icons";
-import { DownIcon } from "../../icons";
+import { UpIcon } from "../../../../public/icons";
+import { DownIcon } from "../../../../public/icons";
 const Packages = () => {
   const [activeFAQ, setActiveFAQ] = useState(false); // Initializes as `null`, no FAQ is active
 

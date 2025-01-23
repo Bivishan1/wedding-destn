@@ -1,26 +1,27 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { UpIcon } from "../../icons";
-import { DownIcon } from "../../icons";
+import { UpIcon } from "../../../../public/icons";
+import { DownIcon } from "../../../../public/icons";
+import { FAQProps } from "../types/faq.types";
+
 // import styles from "./FAQ.module.css";
 
-const FAQ = () => {
-  // const [activeFAQ, setActiveFAQ] = useState(''); // For FAQ accordion
-
+const FAQ: React.FC<Omit<FAQProps, "questions">> = ({
+  expandIcon = <UpIcon />, // Default icon for collapsed state
+  collapseIcon = <DownIcon />, // Default icon for expanded state
+}) => {
   const [activeFAQ, setActiveFAQ] = useState<number | null>(null); // Initializes as `null`, no FAQ is active
 
-  const toggleFAQ = (index: number) => {
-    // Toggle logic: If clicked FAQ is already active, close it (set to null), otherwise set to the clicked FAQ's index
-    console.log(`toggleFAQ called with index: ${index}`);
-    setActiveFAQ(activeFAQ === index ? null : index);
-  };
+  // Extracting `questions` type from `FAQProps` //number represents each elements from the array data questions
+  type QuestionType = FAQProps["questions"][number];
 
-  const questions = [
+  // Using FAQProps['questions'] to type the local array
+  const questions: QuestionType[] = [
     {
       question: "Why wouldn’t I just hire a full-time designer?",
       content:
-        "A full-time designer may be costly and not necessary for short-term or multiple smaller tasks. Our service allows flexibility and cost-efficiency.",
+       "A full-time designer may be costly and not necessary for short-term or multiple smaller tasks. Our service allows flexibility and cost-efficiency.",
     },
     {
       question: "Is there a limit to how many requests I can have?",
@@ -44,9 +45,17 @@ const FAQ = () => {
     },
   ];
 
+  
+
+  const toggleFAQ = (index: number) => {
+    // Toggle logic: If clicked FAQ is already active, close it (set to null), otherwise set to the clicked FAQ's index
+    console.log(`toggleFAQ called with index: ${index}`);
+    setActiveFAQ(activeFAQ === index ? null : index);
+  };
+
   return (
     <div>
-      {questions.map((item, index) => (
+      {questions.map((item, index:number) => (
         <div key={index} className="border-b-2 border-b-black-500">
           {/* Accordion Header */}
           <div
@@ -55,7 +64,7 @@ const FAQ = () => {
           >
             <h5 className="font-semibold">{item.question}</h5>
             <span className="text-xl">
-              {activeFAQ === index ? <DownIcon /> : <UpIcon />}
+              {activeFAQ === index ? collapseIcon : expandIcon}
             </span>
           </div>
           {/* smooth transition */}

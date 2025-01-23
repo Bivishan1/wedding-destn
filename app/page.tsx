@@ -1,17 +1,11 @@
 import Image from "next/image";
-import Heart from "./src/components/atoms/Heart";
-import Trending from "./src/components/molecules/Trending";
-import NavBar from "./src/components/NavBar/NavBar";
-import Packages from "./src/components/molecules/Packages";
-import Footer from "./src/components/organisms/Footer";
-import GoToTop from "./src/components/atoms/GoToTop";
-// import Button from '@mui/material/Button';
-// import { Button } from "@material-tailwind/react";
-// import {Button} from "./components/MyBtn";
-// import { Button}  from './MTailwind';
-
-// import Trending from "./components/Trending";
-import FAQ from "./src/components/FAQ/FAQ";
+import Heart from "@/components/atoms/Heart";
+import Trending from "@/components/molecules/Trending";
+import NavBar from "@/components/NavBar";
+import Packages from "@/components/molecules/Packages";
+import Footer from "@/components/Footer";
+import GoToTop from "@/components/atoms/GoToTop";
+import FAQ from "@/components/FAQ";
 export default function Home() {
   return (
     <div>
@@ -108,10 +102,6 @@ export default function Home() {
           )}
         </div>
         </div>
-
-        {/* <div className="trending-grid">
-          <Trending/>
-        </div> */}
 
         <h2 className="text-4xl">Top selection</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10 mb-10">

@@ -1,9 +1,9 @@
 'use client';
 import Link from "next/link";
 import React from "react";
-import  {LinkedInIcon}  from "../../icons";
-import { FacebookSharpIcon } from "../../icons";
-import { InstagramIcon } from "../../icons";
+import  {LinkedInIcon}  from "../../../../public/icons";
+import { FacebookSharpIcon } from "../../../../public/icons";
+import { InstagramIcon } from "../../../../public/icons";
 
 const Footer = () => {
     const quickLinks = ['Home', 'About', 'Contact', 'Plan', 'Login', 'Get Started'];

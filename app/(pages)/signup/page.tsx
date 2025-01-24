@@ -1,8 +1,14 @@
 "use client";
 import React from "react";
 import { SignUpFormValues, SignUpProps } from "@/components/types/signup.types";
+import  {GoogleIcon, WhatsAppIcon}  from "../../../public/icons";
+import { Button } from "../../src/MTailwind";
+import Link from "next/link";
 
 const SignUp: React.FC<SignUpProps> = ({ onSubmit }) => {
+
+
+
   const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -21,75 +27,110 @@ const SignUp: React.FC<SignUpProps> = ({ onSubmit }) => {
 
   return (
     <div>
-      <div className="bg-red-50">
-      <div className="wrapper1 min-h-screen w-full bg-figma bg-custom bg-no-repeat flex items-center justify-center z-0">
-  <div className="wrapper2 min-h-screen w-full md:w-1/3 max-w-lg bg-figma1 bg-custom-half bg-center bg-no-repeat p-8 flex flex-col items-center justify-center z-10">
-    <div className="wrapper-content w-full max-w-sm flex flex-col">
-      <h1 className="text-center mb-6 text-lg font-bold">Sign Up</h1>
-      <form
-        onSubmit={handleSignUp}
-        className="w-full flex flex-col gap-4 font-sans flex-grow"
-      >
-        <div className="flex gap-4">
-          <div className="flex-1">
-            <label htmlFor="fname" className="block mb-1 text-sm font-medium">
-              First Name
-            </label>
-            <input
-              type="text"
-              name="fname"
-              placeholder="First Name"
-              required
-              className="w-full p-2 border border-gray-300 rounded"
-            />
+      <div className="bg-red-50 min-h-screen">
+        <div className="wrapper1 h-screen w-full bg-figma bg-custom bg-no-repeat flex items-center justify-center py-8">
+          <div className="wrapper2 w-full md:w-1/3 max-w-lg bg-figma1 bg-contain bg-center bg-no-repeat 
+            pb-28 px-20 flex flex-col items-center justify-center m-4 rounded-lg z-100">
+            <div className="wrapper-content w-full max-w-sm flex flex-col z-0">
+              <h1 className="text-center mb-6 text-lg font-bold mt-16">Sign Up</h1>
+              <form
+                onSubmit={handleSignUp}
+                className="w-full flex flex-col gap-4 font-sans flex-grow"
+              >
+                <div className="flex gap-4">
+                  <div className="flex-1">
+                    <label
+                      htmlFor="fname"
+                      className="block mb-1 text-sm font-medium"
+                    >
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      name="fname"
+                      placeholder="First Name"
+                      required
+                      className="w-full p-1 border border-gray-300 rounded"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <label
+                      htmlFor="lname"
+                      className="block mb-1 text-sm font-medium"
+                    >
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      name="lname"
+                      placeholder="Last Name"
+                      required
+                      className="w-full p-1 border border-gray-300 rounded"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <label
+                    htmlFor="email"
+                    className="block mb-1 text-sm font-medium"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    className="w-full p-1 border border-gray-300 rounded"
+                  />
+                </div>
+                <div className="flex-1">
+                  <label
+                    htmlFor="password"
+                    className="block mb-1 text-sm font-medium"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                    className="w-full p-1 border border-gray-300 rounded"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="mt-1 mx-auto w-1/2 bg-red-700 font-semibold text-white rounded hover:bg-red-600"
+                >
+                  Submit
+                </button>
+                </form>
+                <p className="w-full flex  mr-3 my-3">
+            Already have an account?
+            <Link href='/login' className="ml-3">
+           
+            <Button className=" bg-red-900 font-light text-sm p-2" >Login</Button>
+            </Link>
+          </p>
+                <button
+                  type="submit"
+                  className="mt-1 w-full py-1 bg-red-700 font-semibold text-white rounded hover:bg-red-500"
+                >
+                    <GoogleIcon className="mr-4 text-white"/>
+                  Continue with Google
+                </button>
+                <button
+                  type="submit"
+                  className="mt-1 w-full py-1 bg-red-700 font-semibold text-white rounded hover:bg-red-500"
+                >
+                    <WhatsAppIcon className="mr-4 text-white"/>
+                 Continue with Whatsapp
+                </button>
+              
+            </div>
           </div>
-          <div className="flex-1">
-            <label htmlFor="lname" className="block mb-1 text-sm font-medium">
-              Last Name
-            </label>
-            <input
-              type="text"
-              name="lname"
-              placeholder="Last Name"
-              required
-              className="w-full p-2 border border-gray-300 rounded"
-            />
-          </div>
         </div>
-        <div className="flex-1">
-          <label htmlFor="email" className="block mb-1 text-sm font-medium">
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div className="flex-1">
-          <label htmlFor="password" className="block mb-1 text-sm font-medium">
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-            className="w-full p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <button
-          type="submit"
-          className="mt-4 w-full py-3 bg-green-700 font-semibold text-white rounded hover:bg-green-600"
-        >
-          Sign Up
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
       </div>
     </div>
   );

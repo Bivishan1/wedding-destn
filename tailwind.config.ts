@@ -27,6 +27,7 @@ const config: Config = {
         'custom': '100% 100%', // Customize width here
         'custom-auto': '100% auto', // width auto-height
         'custom-half': '100% 75%', // half-width full-height
+        // 'min-height': '75vh';
       }
     },
   },

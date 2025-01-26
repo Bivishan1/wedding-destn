@@ -20,7 +20,7 @@ const config: Config = {
       },
       backgroundImage: {
         'figma': "url('/img/figma.png')",
-        'figma1': "url('/img/figma1.png')",
+        'figma1': "url('/img/figma1-1.png')",
         'hero': "url('/img/wed.jpg')"
       },
       backgroundSize: {

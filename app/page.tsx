@@ -1,15 +1,12 @@
 import Image from "next/image";
 import Heart from "@/components/atoms/Heart";
 import Trending from "@/components/molecules/Trending";
-import NavBar from "@/components/NavBar";
 import Packages from "@/components/molecules/Packages";
-import Footer from "@/components/Footer";
 import GoToTop from "@/components/atoms/GoToTop";
 import FAQ from "@/components/FAQ";
 export default function Home() {
   return (
     <div>
-      <NavBar />
 
       <main
         id="home"
@@ -156,7 +153,6 @@ export default function Home() {
         </div>
       </div>
       <GoToTop />
-      <Footer />
     </div>
   );
 }

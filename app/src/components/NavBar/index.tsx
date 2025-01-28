@@ -35,7 +35,7 @@ function NavBar() {
   return (
     <div className="relative">
       <nav className={`font-normal text-white fixed top-0 left-0 w-screen z-50 border border-red-600 transition-all duration-300
-        ${isScrolled ? 'bg-[rgb(241,130,130)]/95 shadow-lg backdrop-blur-sm' : 'bg-transparent'}`}>
+        ${isScrolled ? 'bg-[rgb(241,130,130)]/95 shadow-lg backdrop-blur-sm' : 'bg-red-300'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Branch Section */}
@@ -45,34 +45,33 @@ function NavBar() {
 
             {/* Centered Menu Links */}
             <div className="hidden md:flex justify-center flex-1 space-x-8">
-              <a
-                href="#home"
-                className=" relative group text-lg active"
-              >
+              <Link href="/" className=" relative group text-lg active">
                 Home
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
-              </a>
-              <a
-                href="#packages"
+              </Link>
+             
+            
+              <Link
+                href="/plans"
                 className="  text-lg relative group"
               >
                 Plans
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#destination"
                 className="  text-lg relative group"
               >
                 Destination
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#contact"
                 className="  text-lg relative group"
               >
                 Contact Us
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
-              </a>
+              </Link>
             </div>
 
             {/* Profile Section */}

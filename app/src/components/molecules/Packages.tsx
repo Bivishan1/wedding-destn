@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { UpIcon } from "../../../../public/icons";
 import { DownIcon } from "../../../../public/icons";
 const Packages = () => {
-  const [activeFAQ, setActiveFAQ] = useState(false); // Initializes as `null`, no FAQ is active
+  const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
 
-  const toggleFAQ = () => {
-    // Toggle logic: If clicked FAQ is already active, close it (set to null), otherwise set to the clicked FAQ's index
-    setActiveFAQ((prev) => !prev);
-  };
+ // Toggle logic: If clicked FAQ is already active, close it (set to null), otherwise set to the clicked FAQ's index
+ const toggleFAQ = (index: number) => {
+  setActiveFAQ((prev) => (prev === index ? null : index));
+};
 
   const packages = ["Premium", "Standard", "Basic"];
   const features: Record<string, string[]> = {
@@ -31,25 +31,25 @@ const Packages = () => {
                 <p className="package bg-red-500 hover:bg-red-400 p-5 rounded-md text-center text-white font-light text-2xl">
                   {pack}
                 </p>
-                <div className="border-b-1 border-b-black-500">
+                <div className="">
                   {/* Accordion Header */}
                   <div
                     className="packages flex justify-between items-center my-2 cursor-pointer"
-                    onClick={() => toggleFAQ()}
+                    onClick={() => toggleFAQ(index)}
                   >
                     <h5 className="font-semibold">Features</h5>
                     <span className="text-xl">
-                      {activeFAQ ? <DownIcon /> : <UpIcon />}
+                      {activeFAQ === index ? <DownIcon /> : <UpIcon />}
                     </span>
                   </div>
                   {/* smooth transition */}
                   <div
                     className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      activeFAQ ? "h-24" : "h-0"
+                      activeFAQ === index ? "h-24" : "h-0"
                     }`}
                   >
                     <div className="p-2">
-                      {activeFAQ &&
+                      {activeFAQ === index &&
                         features[pack.toLowerCase()].map(
                           (feature: string, i: number) => (
                             <p key={i} className="mb-0">

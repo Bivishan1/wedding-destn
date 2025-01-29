@@ -3,11 +3,11 @@ import { LoginFormValues, LoginProps } from "@/components/types/loginform.types"
 import { Button } from "../../src/MTailwind";
 import { useRouter } from 'next/navigation';
 
-const Login: React.FC<LoginProps> = ({ onSubmit, signUpHandler }) => {
+export const Login: React.FC<LoginProps> = ({ onSubmit }) => {
 
   const router = useRouter();
 
- signUpHandler = () => {
+ const signUpHandler = () => {
     router.push('/signup'); // Navigate to the SignUp page
   };
 
@@ -79,7 +79,7 @@ const Login: React.FC<LoginProps> = ({ onSubmit, signUpHandler }) => {
             <p style={{ textAlign: "center", marginTop: "10px" }}>
               Don&apos;t have an account?
               {/* <a href="signup.html" style={{ color: 'blue', textDecoration: 'none' }}> Sign Up</a> */}
-              <Button className="ml-3 bg-red-900" onClick={signUpHandler}>Sign UP</Button>
+              <Button className="ml-3 bg-red-900" onClick={signUpHandler} type="button">Sign UP</Button>
             </p>
           </div>
         </div>

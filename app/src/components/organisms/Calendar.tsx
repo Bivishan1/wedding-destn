@@ -16,7 +16,7 @@ const DateTimelineSelector = () => {
 
   // const { openPopup, closePopup } = usePopup();
 
-  const [calendarStyles, setCalendarStyles] = useState({});
+  // const [calendarStyles, setCalendarStyles] = useState({});
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const calendarRef = useRef<HTMLDivElement>(null);
 //   const [calendarPosition, setCalendarPosition] = useState({ top: 0, left: 0 });
@@ -98,7 +98,7 @@ const DateTimelineSelector = () => {
 
       {/* Calendar Popup */}
       {isCalendarOpen && (
-        <div ref={calendarRef} className="absolute left-0 right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-50" style={calendarStyles}>
+        <div ref={calendarRef} className="absolute left-0 right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-50">
           <DateRangePicker
             ranges={[selectedRange]}
             onChange={handleSelect}

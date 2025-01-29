@@ -5,8 +5,8 @@ import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter"; // Import AppRouterCacheProvider
 import ClientLayout from "./clientLayout";
 // import { PopupProvider } from "@/context/PopUpContext";
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
+// import NavBar from "@/components/NavBar";
+// import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

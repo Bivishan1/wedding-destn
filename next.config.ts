@@ -5,6 +5,10 @@ const nextConfig = {
   experimental: {},
 };
 
+// module.exports = {
+//   trailingSlash: true, // Optional: Add a trailing slash to all URLs
+// };
+
 export default nextConfig;
 
 // List the MUI packages you want to transpile

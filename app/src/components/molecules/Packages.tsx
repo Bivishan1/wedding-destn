@@ -7,7 +7,7 @@ const Packages = () => {
 
  // Toggle logic: If clicked FAQ is already active, close it (set to null), otherwise set to the clicked FAQ's index
  const toggleFAQ = (index: number) => {
-  setActiveFAQ((prev) => (prev === index ? null : index));
+setActiveFAQ(activeFAQ === index ? null : index);
 };
 
   const packages = ["Premium", "Standard", "Basic"];

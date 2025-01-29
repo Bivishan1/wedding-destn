@@ -18,6 +18,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        workSans: ['WorkSans', 'sans-serif'], // Custom font family
+      },
       backgroundImage: {
         'figma': "url('/img/figma.png')",
         'figma1': "url('/img/figma1-1.png')",

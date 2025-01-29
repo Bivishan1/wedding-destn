@@ -11,12 +11,12 @@ const Plans = () => {
 
   const items= ['Resorts0','Resorts1','Resorts2'];
   return (
-    <div className="pt-16 lg:w-[1207px] md:w-[550px] mx-auto flex justify-center gap-5">
+    <div className="mt-24 lg:w-[1207px] md:w-[550px] mx-auto flex justify-center gap-5">
       {/* Sidebar */}
       <div className="filter-sidbar w-[328px]">
-        <h1 className="text-2xl font-medium">Filters</h1>
+        <h1 className="text-xl font-medium">Filters</h1>
         <div className="budget-section">
-          <h2 className="text-2xl font-semibold text-opacity-25 mt-7">
+          <h2 className="text-xl font-bold text-opacity-25 mt-7">
             Budget
           </h2>
           <div className="range flex gap-4 items-center">
@@ -100,22 +100,27 @@ const Plans = () => {
 
             {/* Custom Thumb Indicators */}
             <div
-              className="absolute w-6 h-6 bg-white border-2 border-blue-500 rounded-full top-1/2 -translate-y-1/2 -translate-x-1/2 shadow-md pointer-events-none"
+              className="absolute w-6 h-6 bg-white border-2 border-red-500 rounded-full top-1/2 -translate-y-1/2 -translate-x-1/2 shadow-md pointer-events-none"
               style={{ left: `${(minVal / max) * 100}%` }}
             ></div>
             <div
-              className="absolute w-6 h-6 bg-white border-2 border-blue-500 rounded-full top-1/2 -translate-y-1/2 -translate-x-1/2 shadow-md pointer-events-none"
+              className="absolute w-6 h-6 bg-white border-2 border-red-500 rounded-full top-1/2 -translate-y-1/2 -translate-x-1/2 shadow-md pointer-events-none"
               style={{ left: `${(maxVal / max) * 100}%` }}
             ></div>
           </div>
         </div>
         {/* Horizontal Line  */}
-        <div className="border-b border-gray-300 my-14"></div>
+        <div className="border-b border-gray-300 my-10"></div>
               {/* Venue Accordion */}
+              <div className="venue mb-7">
+
         <AccordionM items={items} heading={'Venue'}/>
+              </div>
+               {/* Horizontal Line  */}
+        <div className="border-b border-gray-300 my-10"></div>
         {/* Date & Time */}
 
-        <h2>Wedding Date and Timeline</h2>
+        <h4>Wedding Date and Timeline</h4>
         <Calendar/>
 
       </div>

@@ -37,6 +37,14 @@
   }
 }
 
+@font-face {
+  font-family: 'WorkSans';
+  src: url('/fonts/WorkSans-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+
 /* .carousel {
   @apply relative h-full w-full;
 }

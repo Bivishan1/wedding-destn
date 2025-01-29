@@ -1,19 +1,49 @@
 "use client";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
+import { usePathname } from 'next/navigation';
+
+// import PopUpHandle from "../../../../config/PopUpHandle";
+// import { usePopup } from "@/context/PopUpContext";
 
 function NavBar() {
+  // const { openPopup, closePopup } = usePopup();
+
   const [isOpen, setIsOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false); // For profile dropdown
   const [isScrolled, setIsScrolled] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  // const dropdownRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement | null>(null);
+    const loginMenuRef = useRef<HTMLDivElement>(null);
 
+    // storing router of page 
+  // const router = useRouter();
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+
+ //closing popup events
   useEffect(() => {
-    const handleClickOutside = (e: { target: unknown; }) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (buttonRef.current?.contains(e.target as Node)) return;
+      if (loginMenuRef.current && !loginMenuRef.current.contains(e.target as Node)) {
         setIsProfileOpen(false);
       }
     };
+
+    if (isProfileOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      window.addEventListener('resize', () => setIsProfileOpen(false));
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('resize', () => setIsProfileOpen(false));
+    };
+  }, [isProfileOpen]);
+  // <PopUpHandle firstRef={buttonRef} secondRef={loginMenuRef} isOpen={isProfileOpen} setIsOpen={setIsProfileOpen}/>
+
+  
+    // screen scrolling handlers
+  useEffect(() => {
 
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -23,24 +53,22 @@ function NavBar() {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
       window.removeEventListener("scroll", handleScroll);
     };
   }  ,[])
 
   return (
-    <div className="relative">
-      <nav className={`font-normal text-white fixed top-0 left-0 w-screen z-50 border border-red-600 transition-all duration-300
-        ${isScrolled ? 'bg-[rgb(241,130,130)]/95 shadow-lg backdrop-blur-sm' : 'bg-red-300'}`}>
+    <div  className="relative">
+      <nav className={`font-semibold ${isHomePage? 'text-white':'text-black' } text-black fixed top-0 left-0 w-screen z-50 border border-red-600 transition-all duration-300
+        ${isScrolled ? 'bg-[rgb(220,130,130)]/95 shadow-lg backdrop-blur-sm' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Branch Section */}
             <div className="flex items-center">
-              <span className="text-2xl font-bold">Destination Wedding</span>
+              <span className="text-2xl font-bold font-workSans" style={{fontFamily:'MyCustomFont'}}>Destination Wedding</span>
             </div>
 
             {/* Centered Menu Links */}
@@ -80,7 +108,7 @@ function NavBar() {
                 Get Started
               </button>
 
-              <button
+              <button ref={buttonRef}
                 className="bg-white px-3 py-2 rounded-md shadow-md text-black relative"
                 onClick={() => setIsProfileOpen(!isProfileOpen)}
               >
@@ -99,7 +127,7 @@ function NavBar() {
                   />
                 </svg>
                 {isProfileOpen && (
-                  <div className="absolute right-0 mt-4 w-48 bg-gray-800 rounded-md shadow-lg transition" ref={dropdownRef}>
+                  <div ref={loginMenuRef} className="absolute right-0 mt-4 w-48 bg-gray-800 rounded-md shadow-lg transition">
                     <a
                       href="#"
                       className="block px-4 py-2 text-sm text-white hover:bg-gray-700"

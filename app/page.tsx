@@ -117,8 +117,10 @@ export default function Home() {
           )}
         </div>
       </div>
+      <div id="packages">
 
       <Packages />
+      </div>
       <section className="cta">
         <div className="cta-content">
           <h1>Customize yours</h1>

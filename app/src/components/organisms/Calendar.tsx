@@ -1,8 +1,10 @@
+'use client';
 import React, {useState, useRef, useEffect  } from "react";
 import { DateRangePicker, RangeKeyDict } from "react-date-range";
 import "react-date-range/dist/styles.css"; // Main style file
 import "react-date-range/dist/theme/default.css"; // Default theme file
 import { format } from "date-fns";
+// import { usePopup } from "@/context/PopUpContext";
 
 const DateTimelineSelector = () => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -12,8 +14,18 @@ const DateTimelineSelector = () => {
     key: "selection",
   });
 
+  // const { openPopup, closePopup } = usePopup();
+
   const [calendarStyles, setCalendarStyles] = useState({});
   const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const calendarRef = useRef<HTMLDivElement>(null);
+//   const [calendarPosition, setCalendarPosition] = useState({ top: 0, left: 0 });
+
+
+
+//   const calculatePosition = () => {
+//     if (!buttonRef.current || !calendarRef.current) return {};
+//   }
 
   const handleSelect = (rangesByKey: RangeKeyDict) => {
     const { selection } = rangesByKey;
@@ -26,25 +38,36 @@ const DateTimelineSelector = () => {
     }
   };
 
-  // Handle positioning the calendar popup dynamically
+  //closing popup events
   useEffect(() => {
-    if (isCalendarOpen && buttonRef.current) {
-      const buttonRect = buttonRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const calendarHeight = 350; // Approximate calendar height
-      const topPosition =
-        buttonRect.bottom + calendarHeight > windowHeight
-          ? buttonRect.top - calendarHeight - 10
-          : buttonRect.bottom + 10;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (buttonRef.current?.contains(e.target as Node)) return;
+      if (calendarRef.current && !calendarRef.current.contains(e.target as Node)) {
+        setIsCalendarOpen(false);
+      }
+    };
 
-      setCalendarStyles({
-        top: `${topPosition}px`,
-        left: `${buttonRect.left}px`,
-        width: `${buttonRect.width}px`,
-        position: "absolute",
-      });
+    if (isCalendarOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      window.addEventListener('resize', () => setIsCalendarOpen(false));
     }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('resize', () => setIsCalendarOpen(false));
+    };
   }, [isCalendarOpen]);
+
+  // Handle positioning the calendar popup dynamically
+// Position the calendar to the right of the button
+// useEffect(() => {
+//     if (isCalendarOpen && buttonRef.current) {
+//       const buttonRect = buttonRef.current.getBoundingClientRect();
+//       setCalendarPosition({
+//         top: buttonRect.top,
+//         left: buttonRect.right + 10, // Position to the right of the button
+//       });
+//     }
+//   }, [isCalendarOpen]);
 
 
   // handle Done button click
@@ -66,7 +89,8 @@ const DateTimelineSelector = () => {
     <div className="relative w-full">
       {/* Button to toggle the calendar */}
       <button
-        className="w-full py-3 text-black bg-white border border-red-500 rounded-[4px] hover:bg-red-600"
+       ref={buttonRef}
+        className="w-full py-2 text-black bg-white border border-red-500 rounded-[6px] hover:bg-red-600"
         onClick={() => setIsCalendarOpen(!isCalendarOpen)}
       >
         Select Date and Timeline
@@ -74,7 +98,7 @@ const DateTimelineSelector = () => {
 
       {/* Calendar Popup */}
       {isCalendarOpen && (
-        <div className="absolute left-0 right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-50" style={calendarStyles}>
+        <div ref={calendarRef} className="absolute left-0 right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-50" style={calendarStyles}>
           <DateRangePicker
             ranges={[selectedRange]}
             onChange={handleSelect}

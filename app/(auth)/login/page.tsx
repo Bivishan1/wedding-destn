@@ -1,9 +1,8 @@
 'use client';
-import { LoginFormValues, LoginProps } from "@/components/types/loginform.types";
+import { LoginFormValues } from "@/components/types/loginform.types";
 import { Button } from "../../src/MTailwind";
 import { useRouter } from 'next/navigation';
-
-export const Login: React.FC<LoginProps> = ({ onSubmit }) => {
+ export default function LoginC() {
 
   const router = useRouter();
 
@@ -11,19 +10,23 @@ export const Login: React.FC<LoginProps> = ({ onSubmit }) => {
     router.push('/signup'); // Navigate to the SignUp page
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
 
-    // Extract form values
-    const formData = new FormData(e.currentTarget);
     const values: LoginFormValues = {
-      fname: formData.get('fname') as string,
-      lname: formData.get('lname') as string,
-      password: formData.get('password') as string,
+      fname: formData.get("fname") as string,
+      lname: formData.get("lname") as string,
+      password: formData.get("password") as string,
     };
 
-    onSubmit(values); // Call the onSubmit handler
-  }
+    console.log("Form Submitted:", values);
+ 
+  };
+    
+
+    
+  
 
   return (
     <div className="bg-red-50">
@@ -31,7 +34,7 @@ export const Login: React.FC<LoginProps> = ({ onSubmit }) => {
         <div className="wrapper2 min-h-screen w-[80%] md:w-1/2 lg:w-1/3 bg-figma1 bg-custom-half bg-center bg-no-repeat p-8 flex items-center justify-center z-10">
           <div className="wrapper-content">
             <h1 className="text-center mb-8">Login</h1>
-            <form action='' onSubmit={handleSubmit} className="w-full flex flex-col gap-4 font-sans">
+            <form action='' onSubmit={onSubmit} className="w-full flex flex-col gap-4 font-sans">
               <div className="flex gap-4">
                 <div className="flex-1">
                   <label htmlFor="fname" className="">
@@ -79,13 +82,13 @@ export const Login: React.FC<LoginProps> = ({ onSubmit }) => {
             <p style={{ textAlign: "center", marginTop: "10px" }}>
               Don&apos;t have an account?
               {/* <a href="signup.html" style={{ color: 'blue', textDecoration: 'none' }}> Sign Up</a> */}
-              <Button className="ml-3 bg-red-900" onClick={signUpHandler} type="button">Sign UP</Button>
+              <Button variant="text" className="ml-3 bg-red-900" onClick={signUpHandler} type="button"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Sign UP</Button>
             </p>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
-export default Login;
+// export default Login;

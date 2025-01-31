@@ -9,8 +9,8 @@ const Trending = () => {
   return (
    
       <Carousel 
-        className='h-96' 
-        placeholder="placeholder">
+      className='h-96'
+      placeholder="placeholder" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
       <Image
         src=
         "/img/venue1.jpg"

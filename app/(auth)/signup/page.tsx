@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { SignUpFormValues, SignUpProps } from "@/components/types/signup.types";
+import { SignUpFormValues } from "@/components/types/signup.types";
 import  {GoogleIcon, WhatsAppIcon}  from "../../../public/icons";
 import { Button } from "../../src/MTailwind";
 import Link from "next/link";
 
-const SignUp: React.FC<SignUpProps> = ({ onSubmit }) => {
+export default function SignUp ()   {
 
 
 
@@ -22,7 +22,7 @@ const SignUp: React.FC<SignUpProps> = ({ onSubmit }) => {
     };
 
     // Pass the values to the onSubmit handler
-    onSubmit(values);
+    console.log('submitted', values);
   };
 
   return (
@@ -111,7 +111,7 @@ const SignUp: React.FC<SignUpProps> = ({ onSubmit }) => {
             Already have an account?
             <Link href='/login' className="ml-3">
            
-            <Button className=" bg-red-900 font-light text-xs p-1 rounded-sm sm:rounded-md sm:text-sm sm:p-2" >Login</Button>
+            <Button className=" bg-red-900 font-light text-xs p-1 rounded-sm sm:rounded-md sm:text-sm sm:p-2" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} >Login</Button>
             </Link>
           </p>
                 <button
@@ -136,5 +136,3 @@ const SignUp: React.FC<SignUpProps> = ({ onSubmit }) => {
     </div>
   );
 };
-
-export default SignUp;

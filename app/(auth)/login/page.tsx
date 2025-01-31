@@ -82,7 +82,7 @@ import { useRouter } from 'next/navigation';
             <p style={{ textAlign: "center", marginTop: "10px" }}>
               Don&apos;t have an account?
               {/* <a href="signup.html" style={{ color: 'blue', textDecoration: 'none' }}> Sign Up</a> */}
-              <Button variant="text" className="ml-3 bg-red-900" onClick={signUpHandler} type="button"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Sign UP</Button>
+              <Button variant="text" className="ml-3 text-white bg-red-900" onClick={signUpHandler} type="button"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Sign UP</Button>
             </p>
           </div>
         </div>

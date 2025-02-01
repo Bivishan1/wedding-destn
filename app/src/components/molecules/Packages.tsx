@@ -24,7 +24,7 @@ setActiveFAQ(activeFAQ === index ? null : index);
         <h3 className="text-center text-2xl mb-12">
           Pick the plans that right for you!
         </h3>
-        <div className="flex flex-wrap justify-center align-middle m-auto gap-10">
+        <div className="flex flex-wrap justify-center items-start m-auto gap-10">
           {packages.map((pack, index) => (
             <div key={index} className="bg-blue-gray-50 rounded-md p-3 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
               <div className="packages">
@@ -48,7 +48,7 @@ setActiveFAQ(activeFAQ === index ? null : index);
                       activeFAQ === index ? "h-24" : "h-0"
                     }`}
                   >
-                    <div className="p-2">
+                    {/* <div className="p-2"> */}
                       {activeFAQ === index &&
                         features[pack.toLowerCase()].map(
                           (feature: string, i: number) => (
@@ -57,7 +57,7 @@ setActiveFAQ(activeFAQ === index ? null : index);
                             </p>
                           )
                         )}
-                    </div>
+                    {/* </div> */}
                   </div>
                 </div>
               </div>

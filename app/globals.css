@@ -39,7 +39,7 @@
 
 @font-face {
   font-family: 'WorkSans';
-  src: url('/fonts/WorkSans-MediumItalic.otf') format('opentype');
+  src: url('/fonts/WorkSans-MediumItalic.ttf') format('opentype');
   font-weight: 500;
   font-style: italic;
 }

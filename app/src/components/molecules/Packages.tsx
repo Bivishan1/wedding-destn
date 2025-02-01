@@ -48,7 +48,7 @@ setActiveFAQ(activeFAQ === index ? null : index);
                       activeFAQ === index ? "h-24" : "h-0"
                     }`}
                   >
-                    {/* <div className="p-2"> */}
+                    <div className="p-2">
                       {activeFAQ === index &&
                         features[pack.toLowerCase()].map(
                           (feature: string, i: number) => (
@@ -57,7 +57,7 @@ setActiveFAQ(activeFAQ === index ? null : index);
                             </p>
                           )
                         )}
-                    {/* </div> */}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -5,6 +5,9 @@ import Packages from "@/components/molecules/Packages";
 import GoToTop from "@/components/atoms/GoToTop";
 import FAQ from "@/components/FAQ";
 export default function Home() {
+  const info_text = [
+    'With its combination of natural wonders, natural beauty cultural richness,affordability, and hospitality, Nepal ffers a wedding experience like no other, making it the perfect destination for couples seeking a unique and unforgettable celebration of love'
+  ]
   return (
     <div>
 
@@ -27,47 +30,18 @@ export default function Home() {
         </div>
       </main>
 
-      <section className="info flex flex-col md:flex-row w-[93%] gap-16 mx-auto mt-20">
-        <div className="info-first flex-1">
+      <section className="info flex flex-col md:flex-row w-[93%] gap-10 mx-auto mt-20">
+        
           {/* text-info-first */}
-          <h3 className="font-semibold text-3xl mb-8">Your Destination</h3>
-
-          <div className="text-info flex gap-16">
-            <p className="text-sm w-[50%] text-justify flex">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div key={index} className="bg-gray-500 px-5 py-3 rounded-lg">
+               <p className="text-sm text-justify flex">
               <span className="mr-3"> ● </span>
-              Nepal is home to stunning landscapes, from the snow-capped peaks
-              of the Himalayas to lush green valleys and serene lakes.
+              {info_text[0]}
             </p>
-
-            <p className="text-sm w-[40%] text-justify flex">
-              <span className="mr-3"> ● </span>
-              Nepal is an enchanting and unique destination for a wedding,
-              offering a blend of natural beauty, rich culture, and spiritual
-              significance.
-            </p>
-          </div>
-          {/* text-info-first end */}
-        </div>
-        <div className="info-second flex-1">
-          <div className="flex mt-7 gap-16">
-            <p className="text-sm w-[50%] text-justify flex">
-              <span className="mr-3"> ● </span>
-              With its combination of natural wonders, cultural richness,
-              affordability, and hospitality, Nepal offers a wedding experience
-              like no other, making it the perfect destination for couples
-              seeking a unique and unforgettable celebration of love.
-            </p>
-
-            <p className="text-sm w-[50%] text-justify flex">
-              <span className="mr-3"> ● </span>
-              Our website provides everything for your dream wedding
-              abroad—curated packages, beautiful venues, trusted vendors, travel
-              support, and planning tools. Enjoy seamless coordination, legal
-              guidance, and 24/7 customer support. Let us make your wedding
-              unforgettable!
-            </p>
-          </div>
-        </div>
+            </div>
+           
+          ))}
       </section>
 
       <div id="destination" className="container h-2/4 mx-auto px-4 sm:px-6 lg:px-5 py-12">

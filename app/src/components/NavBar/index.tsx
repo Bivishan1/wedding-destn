@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
+import { FavIcon, MenuIcon } from "public/icons";
 
 // import PopUpHandle from "../../../../config/PopUpHandle";
 // import { usePopup } from "@/context/PopUpContext";
@@ -13,38 +14,39 @@ function NavBar() {
   const [isProfileOpen, setIsProfileOpen] = useState(false); // For profile dropdown
   const [isScrolled, setIsScrolled] = useState(false);
   // const dropdownRef = useRef<HTMLDivElement>(null);
-    const buttonRef = useRef<HTMLButtonElement | null>(null);
-    const loginMenuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const loginMenuRef = useRef<HTMLDivElement>(null);
 
-    // storing router of page 
+  // storing router of page
   // const router = useRouter();
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
+  const isHomePage = pathname === "/";
 
- //closing popup events
+  //closing popup events
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (buttonRef.current?.contains(e.target as Node)) return;
-      if (loginMenuRef.current && !loginMenuRef.current.contains(e.target as Node)) {
+      if (
+        loginMenuRef.current &&
+        !loginMenuRef.current.contains(e.target as Node)
+      ) {
         setIsProfileOpen(false);
       }
     };
 
     if (isProfileOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      window.addEventListener('resize', () => setIsProfileOpen(false));
+      document.addEventListener("mousedown", handleClickOutside);
+      window.addEventListener("resize", () => setIsProfileOpen(false));
     }
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      window.removeEventListener('resize', () => setIsProfileOpen(false));
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("resize", () => setIsProfileOpen(false));
     };
   }, [isProfileOpen]);
   // <PopUpHandle firstRef={buttonRef} secondRef={loginMenuRef} isOpen={isProfileOpen} setIsOpen={setIsProfileOpen}/>
 
-  
-    // screen scrolling handlers
+  // screen scrolling handlers
   useEffect(() => {
-
     const handleScroll = () => {
       if (window.scrollY > 0) {
         setIsScrolled(true);
@@ -58,17 +60,27 @@ function NavBar() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }  ,[])
+  }, []);
 
   return (
-    <div  className="relative">
-      <nav className={`font-semibold ${isHomePage? 'text-white':'text-black' } text-black fixed top-0 left-0 w-screen z-50 border border-red-600 transition-all duration-300
-        ${isScrolled ? 'bg-[rgb(220,130,130)]/95 shadow-lg backdrop-blur-sm' : 'bg-transparent'}`}>
+    <div className="relative">
+      <nav
+        className={`font-semibold ${
+          isHomePage ? "text-white" : "text-black"
+        } text-black fixed top-0 left-0 w-screen z-50 border border-red-600 transition-all duration-300
+        ${
+          isScrolled
+            ? "bg-[rgb(220,130,130)]/95 shadow-lg backdrop-blur-sm"
+            : "bg-transparent"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Branch Section */}
             <div className="flex items-center">
-              <span className="text-2xl font-bold font-workSans" style={{fontFamily:'MyCustomFont'}}>Destination Wedding</span>
+              <span className="text-2xl font-bold font-workSans">
+                Destination Wedding
+              </span>
             </div>
 
             {/* Centered Menu Links */}
@@ -77,41 +89,37 @@ function NavBar() {
                 Home
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </Link>
-             
-            
-              <Link
-                href="/plans"
-                className="  text-lg relative group"
-              >
+
+              <Link href="/plans" className="  text-lg relative group">
                 Plans
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </Link>
-              <Link
-                href="#destination"
-                className="  text-lg relative group"
-              >
+              <Link href="#destination" className="  text-lg relative group">
                 Destination
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </Link>
-              <Link
-                href="#contact"
-                className="  text-lg relative group"
-              >
+              <Link href="#contact" className="  text-lg relative group">
                 Contact Us
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </Link>
             </div>
 
             {/* Profile Section */}
-            <div className="hidden md:flex items-center space-x-7">
+            <div className="hidden md:flex items-center gap-6">
+              <div className="favorite-icon font-semibold cursor-pointer" title="Favourites">
+                <FavIcon fontSize={'large'}/>
+              </div>
               <button className="text-red-900 bg-white px-3 py-2 rounded-md font-semibold hover:bg-gray-400 transition shadow-sm">
                 Get Started
               </button>
 
-              <button ref={buttonRef}
-                className="bg-white px-3 py-2 rounded-md shadow-md text-black relative"
-                onClick={() => setIsProfileOpen(!isProfileOpen)}
+              <button
+                ref={buttonRef}
+                className={`bg-red-900 px-3 py-2 rounded-md shadow-md text-white relative flex gap-2 ${
+        isProfileOpen ? 'rounded-t-md rounded-b-none' : 'rounded-md'}`} 
+        onClick={() => setIsProfileOpen(!isProfileOpen)}
               >
+                <MenuIcon />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -127,25 +135,23 @@ function NavBar() {
                   />
                 </svg>
                 {isProfileOpen && (
-                  <div ref={loginMenuRef} className="absolute right-0 mt-4 w-48 bg-gray-800 rounded-md shadow-lg transition">
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
+                  <div
+                    ref={loginMenuRef}
+                    className="absolute right-0 top-[41px] w-[80px] bg-white text-black rounded-none shadow-lg transition rounded-t-none rounded-b-md"
+                  >   <Link
+                      href="/signup"
+                      className="block px-5 py-2 text-sm hover:bg-red-900 hover:text-white"
                     >
-                      Account
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
-                    >
-                      Settings
-                    </a>
+                      Signup
+                    </Link>
+                    <div className="border-b border-gray-300"></div>
                     <Link
                       href="/login"
-                      className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
+                      className="block px-4 py-2 text-sm hover:bg-red-900 hover:text-white"
                     >
-                      LogIn
+                      Login
                     </Link>
+                 
                   </div>
                 )}
               </button>
@@ -197,9 +203,9 @@ function NavBar() {
         </div>
 
         {/* Mobile Menu */}
-        <div 
+        <div
           className={`md:hidden fixed top-16 left-0 w-full transform ${
-            isOpen ? 'translate-x-0' : '-translate-x-full'
+            isOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out`}
         >
           <div className="bg-gray-800 shadow-lg">

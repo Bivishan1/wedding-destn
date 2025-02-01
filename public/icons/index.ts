@@ -5,3 +5,5 @@ export { default as InstagramIcon } from './InstagramIcon';
 export { default as LinkedInIcon } from './LinkedIcon';
 export { default as GoogleIcon } from './GoogleIcon';
 export { default as WhatsAppIcon } from './WhatsappIcon';
+export { default as MenuIcon } from './MenuIcon';
+export { default as FavIcon } from './FavoriteIcon';

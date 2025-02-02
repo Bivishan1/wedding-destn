@@ -98,16 +98,20 @@ export default function Home() {
 
       <Packages />
       </div>
-      <section className="cta">
-        <div className="cta-content">
-          <h1>Customize yours</h1>
-          <button className="plan-button">Plan With Us</button>
-        </div>
-      </section>
+      {/* <section className="cta-main min-h-[500px] lg:min-h-screen w-full"> */}
+      <div className="w-full h-[480px] my-20">
+  <div className="bg-costumize1 bg-cover lg:bg-contain bg-center w-full h-full flex flex-col items-center justify-center p-8 md:p-10 gap-4 relative">
+    <h1 className="text-4xl md:text-7xl text-white">Customize yours</h1>
+    <button className="plan-button hover:shadow-2xl mt-4">
+      Plan With Us
+    </button>
+  </div>
+  </div>
+{/* </section> */}
 
       <div className="container plan-info mt-7">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 py-10 h-auto">
-          <div className="text-info w-full sm:w-3/4 md:w-2/4 lg:w-2/4 text-2xl overflow-hidden break-words">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12 py-10 h-auto">
+          <div className="text-info w-full sm:w-3/4 md:w-2/6 text-2xl overflow-hidden break-words">
             <p className="text-3xl">
               Plan your wedding with sweeter memories and better view. We
               intertwine tradition and adventure.

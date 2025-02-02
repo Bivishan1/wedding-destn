@@ -24,13 +24,21 @@ const config: Config = {
       backgroundImage: {
         'figma': "url('/img/figma.png')",
         'figma1': "url('/img/figma1-1.png')",
-        'hero': "url('/img/wed.jpg')"
+        'hero': "url('/img/wed.jpg')",
+        "costumize1":"url('/img/costumize1.png')"
       },
       backgroundSize: {
         'custom': '100% 100%', // Customize width here
         'custom-auto': '100% auto', // width auto-height
         'custom-half': '100% 75%', // half-width full-height
         // 'min-height': '75vh';
+      },
+      height: {
+        'screen': '100vh',
+        'full': '100%',
+      },
+      minHeight: {
+        'screen': '100vh',
       }
     },
   },

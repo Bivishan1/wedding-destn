@@ -129,7 +129,7 @@ export default function Home() {
         <div className="faq-section mt-20">
           <h3 className="mb-10">Commonly asked questions</h3>
           <div className="faq-item border-b border-b-white mb-5">
-            <div className="faq-question faq-question py-4 flex justify-between items-center cursor-pointer">
+            <div className="">
               <FAQ />
             </div>
           </div>

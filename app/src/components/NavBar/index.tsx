@@ -107,7 +107,7 @@ function NavBar() {
             {/* Profile Section */}
             <div className="hidden md:flex items-center gap-6">
               <div className="favorite-icon font-semibold cursor-pointer" title="Favourites">
-                <FavIcon fontSize={'large'}/>
+                <FavIcon fontSize={'large'} className="hover:text-red-800"/>
               </div>
               <button className="text-red-900 bg-white px-3 py-2 rounded-md font-semibold hover:bg-gray-400 transition shadow-sm">
                 Get Started

@@ -30,11 +30,13 @@ export default function Home() {
         </div>
       </main>
 
-      <section className="info flex flex-col md:flex-row w-[93%] gap-10 mx-auto mt-20">
-        
+      <section className="info w-[93%] mx-auto mb-20">
+        <h2 className="my-20 text-4xl">Your Destination</h2>
+        <div className="info-text flex flex-col md:flex-row gap-10">
+
           {/* text-info-first */}
           {Array.from({ length: 4 }).map((_, index) => (
-            <div key={index} className="bg-gray-500 px-5 py-3 rounded-lg">
+            <div key={index} className="bg-gray-300 px-5 py-3 rounded-3xl">
                <p className="text-sm text-justify flex">
               <span className="mr-3"> ● </span>
               {info_text[0]}
@@ -42,6 +44,7 @@ export default function Home() {
             </div>
            
           ))}
+        </div>
       </section>
 
       <div id="destination" className="container h-2/4 mx-auto px-4 sm:px-6 lg:px-5 py-12">

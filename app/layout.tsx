@@ -3,7 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 // import theme from '../theme';
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter"; // Import AppRouterCacheProvider
-import ClientLayout from "./clientLayout";
+// import ClientLayout from "./clientLayout";
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 // import { PopupProvider } from "@/context/PopUpContext";
 // import NavBar from "@/components/NavBar";
 // import Footer from "@/components/Footer";
@@ -36,16 +38,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-       <ClientLayout>
+       {/* <ClientLayout> */}
         <AppRouterCacheProvider>
           {/* CssBaseline helps normalize the CSS */}
-
+<NavBar/>
           {/* <PopupProvider> */}
           {children}
-        
+        <Footer/>
           {/* </PopupProvider> */}
         </AppRouterCacheProvider> 
-        </ClientLayout>
+        {/* </ClientLayout> */}
       </body>
     </html>
   );

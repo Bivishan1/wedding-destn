@@ -20,7 +20,7 @@ const Footer = () => {
               odio voluptatum.
             </p>
           </div>
-          <div className="get-touch mt-[-30px] w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <div className="get-touch w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
             <h3>Get In Touch</h3>
             <div className="get-touch-contact py-10">
             <p>Call: +977 9841234567</p>
@@ -37,7 +37,7 @@ const Footer = () => {
               <Link href="/accessibility"><u>Accessibility</u></Link>
             </h3>
           </div>
-          <div className="quick-links mt-[-60px] w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <div className="quick-links w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
             <h3 className="mb-8">Quick Links</h3>
             {quickLinks.map((link, index) => (
                 <h4 key={index} className="mb-6 font-medium"><Link href={`/${link.toLowerCase()}`}>{link}</Link></h4>

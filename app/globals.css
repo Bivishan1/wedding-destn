@@ -38,11 +38,42 @@
 }
 
 @font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'WorkSans';
   src: url('/fonts/WorkSans-MediumItalic.ttf') format('opentype');
   font-weight: 500;
   font-style: italic;
 }
+
+/* Define the Bold weight */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: bold; /* 700 weight */
+  font-style: normal;
+}
+
+/* Define the ExtraBold weight */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800; /* 800 weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'samarkan';
+  src: url('/fonts/SAMAN___.TTF') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
 
 
 /* .carousel {
@@ -72,7 +103,8 @@ html {
 }
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+  font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
 }
 

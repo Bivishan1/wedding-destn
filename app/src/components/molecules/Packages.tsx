@@ -21,7 +21,7 @@ setActiveFAQ(activeFAQ === index ? null : index);
     <div>
       <section id="packages" className="container">
         <h2>Packages</h2>
-        <h3 className="text-center text-2xl mb-12">
+        <h3 className="text-center font-normal mb-12">
           Pick the plans that right for you!
         </h3>
         <div className="flex flex-wrap justify-center items-start m-auto gap-10">

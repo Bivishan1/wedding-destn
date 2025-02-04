@@ -19,7 +19,9 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
+        sans: ['Poppins', 'sans-serif'],  // Set Poppins as the default font
         workSans: ['WorkSans', 'sans-serif'], // Custom font family
+        samarKan :['Samarkan', 'sans-serif']
       },
       backgroundImage: {
         'figma': "url('/img/figma.png')",

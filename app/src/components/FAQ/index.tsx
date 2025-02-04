@@ -62,7 +62,7 @@ const FAQ: React.FC<Omit<FAQProps, "questions">> = ({
             className="faq-question faq-question py-4 flex justify-between items-center cursor-pointer"
             onClick={() => toggleFAQ(index)}
           >
-            <h5 className="font-semibold">{item.question}</h5>
+            <h5 className="font-medium">{item.question}</h5>
             <span className="text-xl">
               {activeFAQ === index ? collapseIcon : expandIcon}
             </span>

@@ -28,7 +28,7 @@ const Heart: React.FC<HeartProps> = ({
           {heartState.map((state, index) => (
                 <button
                     key={index}
-                    className={`heart-btn absolute top-2 right-2 bg-none border-none text-white ${className} text-2xl`}
+                    className={`heart-btn absolute top-2 right-2 bg-none border-none text-white ${className} text-4xl`}
                     onClick={() => toggleHeart(index)} // Pass index to the handler
                 >
                     {state ? '♥' : '♡'}

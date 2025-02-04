@@ -4,6 +4,7 @@ import Trending from "@/components/molecules/Trending";
 import Packages from "@/components/molecules/Packages";
 import GoToTop from "@/components/atoms/GoToTop";
 import FAQ from "@/components/FAQ";
+import Link from "next/link";
 export default function Home() {
   const info_text = [
     'With its combination of natural wonders, natural beauty cultural richness,affordability, and hospitality, Nepal ffers a wedding experience like no other, making it the perfect destination for couples seeking a unique and unforgettable celebration of love'
@@ -20,11 +21,11 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-6">
-            <h2 className="text-6xl mb-5 sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
+            <h2 className="text-6xl mb-5 sm:text-4xl lg:text-5xl font-bold leading-tight text-white font-samarKan">
               Plan Your Destination Wedding
             </h2>
-            <button className="text-white border-none px-5 py-4 rounded cursor-pointer hover:bg-red-500 bg-red-900">
-              <a href="#packages"> See Plans</a>
+            <button className="text-red-800 font-semibold border-none px-3 py-4 rounded cursor-pointer hover:bg-gray-400 bg-white">
+              <Link href="#packages"> See Plans</Link>
             </button>
           </div>
         </div>
@@ -51,9 +52,6 @@ export default function Home() {
       <div className="max-w-7xl mx-auto">
         <div className="header mb-5 flex justify-between items-center">
           <h2 className="text-4xl">Top Trending Wedding Destinations</h2>
-          <button className="view-all bg-none border-none text-red-800 cursor-pointer">
-            View all
-          </button>
         </div>
 
         <div className="trending-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -61,15 +59,15 @@ export default function Home() {
             (title, index) => (
               <div
                 key={index}
-                className="destination-card flex flex-col items-center rounded-lg overflow-hidden shadow-md bg-white"
+                className="destination-card flex flex-col rounded-lg overflow-hidden shadow-md bg-white"
               >
                 <div className="destination w-full relative bg-[#f0f0f0] rounded-2xl">
                   <Trending />
                   <Heart className="cursor-pointer" />
                 </div>
-                <div className="card-content">
+                <div className="card-content my-4">
                   <h3>{title}</h3>
-                  <p>Description</p>
+                  <p>Description: this is a description part Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore repellendus assumenda eveniet asperiores sint sunt, esse, vero veritatis dolores dolorem, perferendis.</p>
                 </div>
               </div>
             )
@@ -81,12 +79,12 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10 mb-10">
           {["Destination", "Decoration", "Food", "Mocktail/Cocktail"].map(
             (category, index) => (
-              <div key={index} className="bg-gray-200 p-4 rounded-lg text-center h-[fit-content]">
-                <Image className="w-full object-cover rounded-lg mb-2"
+              <div key={index} className="bg-gray-200 p-4 rounded-lg text-center">
+                <Image className="w-full rounded-lg mb-2 h-[230px]"
                   src={`/img/venue${index + 1}.jpg`}
                   alt={category}
                   width={300}
-                  height={200}
+                  height={310}
                 />
                 <p>{category}</p>
               </div>
@@ -101,8 +99,8 @@ export default function Home() {
       {/* <section className="cta-main min-h-[500px] lg:min-h-screen w-full"> */}
       <div className="w-full h-[480px] my-20">
   <div className="bg-costumize1 bg-cover lg:bg-contain bg-center w-full h-full flex flex-col items-center justify-center p-8 md:p-10 gap-4 relative">
-    <h1 className="text-4xl md:text-7xl text-white">Customize yours</h1>
-    <button className="plan-button hover:shadow-2xl mt-4">
+    <h1 className="text-4xl font-extrabold md:text-8xl text-white">Customize yours</h1>
+    <button className="plan-button hover:shadow-2xl mt-4 text-3xl md:text-4xl">
       Plan With Us
     </button>
   </div>
@@ -127,7 +125,7 @@ export default function Home() {
           />
         </div>
         <div className="faq-section mt-20">
-          <h3 className="mb-10">Commonly asked questions</h3>
+          <h3 className="mb-10 text-2xl">Commonly asked questions</h3>
           <div className="faq-item border-b border-b-white mb-5">
             <div className="">
               <FAQ />

@@ -76,24 +76,6 @@
 
 
 
-/* .carousel {
-  @apply relative h-full w-full;
-}
-
-.carousel-item {
-  @apply h-full w-full;
-}
-
-img {
-  @apply max-w-full h-auto;
-} */
-
-/* body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-} */
-
 * {
   box-sizing: border-box;
 }
@@ -120,50 +102,7 @@ body {
   gap: 20px;
   margin-bottom: 40px;
 }
-/* .selection-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-bottom: 40px;
-}
-.selection-card {
-  background: #eee;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
-}
-.selection-card img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
-} */
 
-/* .cta { */
-  /* background-image: url('/img/costumize1.png'); */
-  /* background-size:contain;
-  /* background-position: center; */
-  /* background-repeat: no-repeat; */
-  /* width:100%; */
-  /* padding: 40px 40px;
-  gap: 10px;
-  position: relative;
-  overflow: hidden; */
-  /* object-fit: contain; */
-  /* height: 100%; */ 
-/* } */
-
-/* .cta-content {
-  max-width: 1200px;
- 
-  margin:  auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
 .cta h1 {
   /* font-size: 3.5rem; */
   text-align: center;

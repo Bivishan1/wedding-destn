@@ -2,20 +2,35 @@
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { FavIcon, MenuIcon } from "public/icons";
-
-// import PopUpHandle from "../../../../config/PopUpHandle";
-// import { usePopup } from "@/context/PopUpContext";
+import { FavIcon } from "public/icons";
+import PersonIcon from "public/icons/PersonIcon";
+import { useCloseOnOutsideClick } from "@/hooks/useOutsideClick";
+import { useUI } from "@/context/PopUpContext";
 
 function NavBar() {
-  // const { openPopup, closePopup } = usePopup();
-
-  const [isOpen, setIsOpen] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false); // For profile dropdown
+  const { isProfileOpen, setIsProfileOpen } = useUI();
+  const desktopButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileButtonRef = useRef<HTMLButtonElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  // const dropdownRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
-  const loginMenuRef = useRef<HTMLDivElement>(null);
+  const loginMenuRef = useRef<HTMLDivElement>(
+    null as unknown as HTMLDivElement
+  );
+
+  useCloseOnOutsideClick(
+    isProfileOpen,
+    loginMenuRef,
+    [
+      desktopButtonRef as React.RefObject<HTMLElement>,
+      mobileButtonRef as React.RefObject<HTMLElement>,
+    ],
+    () => setIsProfileOpen(false)
+  );
+
+  // Helper function to toggle menu
+  const toggleMenu = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setIsProfileOpen(!isProfileOpen);
+  };
 
   // storing router of page
   // const router = useRouter();
@@ -23,26 +38,6 @@ function NavBar() {
   const isHomePage = pathname === "/";
 
   //closing popup events
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (buttonRef.current?.contains(e.target as Node)) return;
-      if (
-        loginMenuRef.current &&
-        !loginMenuRef.current.contains(e.target as Node)
-      ) {
-        setIsProfileOpen(false);
-      }
-    };
-
-    if (isProfileOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-      window.addEventListener("resize", () => setIsProfileOpen(false));
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      window.removeEventListener("resize", () => setIsProfileOpen(false));
-    };
-  }, [isProfileOpen]);
   // <PopUpHandle firstRef={buttonRef} secondRef={loginMenuRef} isOpen={isProfileOpen} setIsOpen={setIsProfileOpen}/>
 
   // screen scrolling handlers
@@ -67,7 +62,7 @@ function NavBar() {
       <nav
         className={`font-semibold ${
           isHomePage ? "text-white" : "text-black"
-        } text-black fixed top-0 left-0 w-screen z-50 border border-red-600 transition-all duration-300
+        } text-black fixed top-0 left-0 w-screen z-50 transition-all duration-300 ease-in-out
         ${
           isScrolled
             ? "bg-[rgb(220,130,130)]/95 shadow-lg backdrop-blur-sm"
@@ -106,52 +101,44 @@ function NavBar() {
 
             {/* Profile Section */}
             <div className="hidden md:flex items-center gap-6">
-              <div className="favorite-icon font-semibold cursor-pointer" title="Favourites">
-                <FavIcon fontSize={'large'} className="hover:text-red-800"/>
+              <div
+                className="favorite-icon font-semibold cursor-pointer"
+                title="Favourites"
+              >
+                <FavIcon fontSize={"large"} className="hover:text-red-800" />
               </div>
-              <button className="text-red-900 bg-white px-3 py-2 rounded-md font-semibold hover:bg-gray-400 transition shadow-sm">
+              <button className={`${isHomePage ? 'bg-white text-red-900 rounded-2xl hover:bg-gray-400':'bg-black text-white rounded-md hover:bg-gray-800'} px-4 py-3  font-semibold  transition shadow-sm`}>
                 Get Started
               </button>
 
               <button
-                ref={buttonRef}
-                className={`bg-red-900 px-3 py-2 rounded-md shadow-md text-white relative flex gap-2 ${
-        isProfileOpen ? 'rounded-t-md rounded-b-none' : 'rounded-md'}`} 
-        onClick={() => setIsProfileOpen(!isProfileOpen)}
+                ref={desktopButtonRef}
+                className={`bg-red-900 border text-white shadow-md py-[7px] relative flex justify-center items-center gap-2 w-[66px] h-[49px] rounded-2xl hover:text-red-900 hover:bg-white transition-all duration-200 transform hover:scale-95 ${
+                  isProfileOpen ? "rounded-b-none" : "rounded-2xl"
+                }`}
+                onClick={toggleMenu}
               >
-                <MenuIcon />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                  />
-                </svg>
+                <PersonIcon />
+
                 {isProfileOpen && (
                   <div
                     ref={loginMenuRef}
-                    className="absolute right-0 top-[41px] w-[80px] bg-white text-black rounded-none shadow-lg transition rounded-t-none rounded-b-md"
-                  >   <Link
+                    className="absolute text-xs right-0 top-[50px] w-[65px] bg-white text-black rounded-none shadow-lg transition rounded-t-none rounded-b-md"
+                  >
+                    {" "}
+                    <Link
                       href="/signup"
-                      className="block px-5 py-2 text-sm hover:bg-red-900 hover:text-white"
+                      className="block px-1 py-4 text-sm hover:bg-red-900 hover:text-white"
                     >
-                      Signup
+                      Sign up
                     </Link>
                     <div className="border-b border-gray-300"></div>
                     <Link
                       href="/login"
-                      className="block px-4 py-2 text-sm hover:bg-red-900 hover:text-white"
+                      className="block px-1 py-4 text-sm hover:bg-red-900 hover:text-white"
                     >
                       Login
                     </Link>
-                 
                   </div>
                 )}
               </button>
@@ -160,11 +147,12 @@ function NavBar() {
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-600 focus:outline-none"
+                ref={mobileButtonRef}
+                onClick={toggleMenu}
+                className={`inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-600 focus:outline-none`}
               >
                 <span className="sr-only">Open main menu</span>
-                {isOpen ? (
+                {isProfileOpen ? (
                   <svg
                     className="h-6 w-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +193,7 @@ function NavBar() {
         {/* Mobile Menu */}
         <div
           className={`md:hidden fixed top-16 left-0 w-full transform ${
-            isOpen ? "translate-x-0" : "-translate-x-full"
+            isProfileOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out`}
         >
           <div className="bg-gray-800 shadow-lg">
@@ -213,35 +201,35 @@ function NavBar() {
               <a
                 href="#home"
                 className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700 rounded-md"
-                onClick={() => setIsOpen(false)}
+                // onClick={() => setIsOpen(false)}
               >
                 Home
               </a>
               <a
                 href="#packages"
                 className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700 rounded-md"
-                onClick={() => setIsOpen(false)}
+                // onClick={() => setIsOpen(false)}
               >
                 Plans
               </a>
               <a
                 href="#destination"
                 className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700 rounded-md"
-                onClick={() => setIsOpen(false)}
+                // onClick={() => setIsOpen(false)}
               >
                 Destination
               </a>
               <a
                 href="#contact"
                 className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700 rounded-md"
-                onClick={() => setIsOpen(false)}
+                // onClick={() => setIsOpen(false)}
               >
                 Contact Us
               </a>
               <Link
                 href="/login"
                 className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700 rounded-md"
-                onClick={() => setIsOpen(false)}
+                // onClick={() => setIsOpen(false)}
               >
                 Login
               </Link>

@@ -1,40 +1,27 @@
-// "use client";
-// import React, { createContext, useContext, useState, ReactNode } from 'react';
+// contexts/UIContext.tsx
+'use client';
+import { createContext, useContext, useState } from 'react';
 
-// interface PopupContextType {
-//   openPopup: () => void;
-//   closePopup: () => void;
-// }
+type UIContextType = {
+  isCalendarOpen: boolean;
+  setIsCalendarOpen: (value: boolean) => void;
+  isProfileOpen: boolean;
+  setIsProfileOpen: (value: boolean) => void;
+};
 
-// // Create the Popup context
-// const PopupContext = createContext<PopupContextType | undefined>(undefined);
+const UIContext = createContext<UIContextType>({} as UIContextType);
 
-// // Create the PopupProvider component
-// export const PopupProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-//   const [isOpen, setIsOpen] = useState(false); // Track whether the popup is open or closed
+export const UIProvider = ({ children }: { children: React.ReactNode }) => {
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
-//   // Function to open the popup
-//   const openPopup = () => {
-//     setIsOpen(true);
-//   };
+  return (
+    <UIContext.Provider
+      value={{ isCalendarOpen, setIsCalendarOpen, isProfileOpen, setIsProfileOpen }}
+    >
+      {children}
+    </UIContext.Provider>
+  );
+};
 
-//   // Function to close the popup
-//   const closePopup = () => {
-//     setIsOpen(false);
-//   };
-
-//   return (
-//     <PopupContext.Provider value={{ openPopup, closePopup }}>
-//       {children}
-//     </PopupContext.Provider>
-//   );
-// };
-
-// // The usePopup hook to use popup state in any component
-// export const usePopup = (): PopupContextType => {
-//   const context = useContext(PopupContext);
-//   if (!context) {
-//     throw new Error('usePopup must be used within a PopupProvider');
-//   }
-//   return context;
-// };
+export const useUI = () => useContext(UIContext);

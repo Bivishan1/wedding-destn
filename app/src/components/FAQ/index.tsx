@@ -59,11 +59,12 @@ const FAQ: React.FC<Omit<FAQProps, "questions">> = ({
         <div key={index} className="border-b-2 border-b-black-500">
           {/* Accordion Header */}
           <div
-            className="faq-question faq-question py-4 flex justify-between items-center cursor-pointer"
+            className="faq-question faq-question py-4 flex justify-between items-center cursor-pointer "
             onClick={() => toggleFAQ(index)}
           >
-            <h5 className="font-medium">{item.question}</h5>
-            <span className="text-xl">
+            <h5 className="font-medium">
+              <span className="hover:underline p-0 m-0 leading-[0]">{item.question}</span></h5>
+            <span className="text-xl transition-all duration-300">
               {activeFAQ === index ? collapseIcon : expandIcon}
             </span>
           </div>

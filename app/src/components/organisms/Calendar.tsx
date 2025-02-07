@@ -1,11 +1,14 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { DateRangePicker, RangeKeyDict } from 'react-date-range';
 import { format } from 'date-fns';
+import { useCloseOnOutsideClick } from "@/hooks/useOutsideClick";
+import { useUI } from "@/context/PopUpContext";
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 
 const DateTimelineSelector = () => {
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+   // Get UI context values
+  const { isCalendarOpen, setIsCalendarOpen } = useUI();
   const [selectedRange, setSelectedRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
@@ -14,8 +17,9 @@ const DateTimelineSelector = () => {
   const [startTime, setStartTime] = useState('00:00');
   const [endTime, setEndTime] = useState('23:59');
 
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  // Refs for click-outside detection
   const calendarRef = useRef<HTMLDivElement>(null);
+  const calendarButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleSelect = (rangesByKey: RangeKeyDict) => {
     const { selection } = rangesByKey;
@@ -53,23 +57,13 @@ const DateTimelineSelector = () => {
     }
   };
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (buttonRef.current?.contains(e.target as Node)) return;
-      if (calendarRef.current && !calendarRef.current.contains(e.target as Node)) {
-        setIsCalendarOpen(false);
-      }
-    };
-
-    if (isCalendarOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      window.addEventListener('resize', () => setIsCalendarOpen(false));
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      window.removeEventListener('resize', () => setIsCalendarOpen(false));
-    };
-  }, [isCalendarOpen]);
+ // Use the custom hook
+ useCloseOnOutsideClick(
+  isCalendarOpen,
+  calendarRef as React.RefObject<HTMLElement>,
+  [calendarButtonRef as React.RefObject<HTMLElement>],
+  () => setIsCalendarOpen(false)
+);
 
   const handleDone = () => {
     setIsCalendarOpen(false);
@@ -88,7 +82,7 @@ const DateTimelineSelector = () => {
   return (
     <div className="relative w-full">
       <button
-        ref={buttonRef}
+        ref={calendarButtonRef}
         className="w-full py-2 text-black bg-white border border-red-500 rounded-[6px] hover:bg-red-600"
         onClick={() => setIsCalendarOpen(!isCalendarOpen)}
       >

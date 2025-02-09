@@ -21,7 +21,7 @@ const FAQ: React.FC<Omit<FAQProps, "questions">> = ({
     {
       question: "Why wouldn’t I just hire a full-time designer?",
       content:
-       "A full-time designer may be costly and not necessary for short-term or multiple smaller tasks. Our service allows flexibility and cost-efficiency.",
+        "A full-time designer may be costly and not necessary for short-term or multiple smaller tasks. Our service allows flexibility and cost-efficiency.",
     },
     {
       question: "Is there a limit to how many requests I can have?",
@@ -45,8 +45,6 @@ const FAQ: React.FC<Omit<FAQProps, "questions">> = ({
     },
   ];
 
-  
-
   const toggleFAQ = (index: number) => {
     // Toggle logic: If clicked FAQ is already active, close it (set to null), otherwise set to the clicked FAQ's index
     console.log(`toggleFAQ called with index: ${index}`);
@@ -55,16 +53,23 @@ const FAQ: React.FC<Omit<FAQProps, "questions">> = ({
 
   return (
     <div>
-      {questions.map((item, index:number) => (
+      {questions.map((item, index: number) => (
         <div key={index} className="border-b-2 border-b-black-500">
           {/* Accordion Header */}
           <div
             className="faq-question faq-question py-4 flex justify-between items-center cursor-pointer "
             onClick={() => toggleFAQ(index)}
           >
-            <h5 className="font-medium">
-              <span className="hover:underline p-0 m-0 leading-[0]">{item.question}</span></h5>
-            <span className="text-xl transition-all duration-300">
+            <p className="text-lg font-medium">
+              <span className="hover:underline p-0 m-0 leading-[0]">
+                {item.question}
+              </span>
+            </p>
+            <span
+              className={`text-xl transition-transform duration-300 transform ${
+                activeFAQ === index ? "rotate-45" : "rotate-0"
+              }`}
+            >
               {activeFAQ === index ? collapseIcon : expandIcon}
             </span>
           </div>

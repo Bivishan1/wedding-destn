@@ -91,10 +91,42 @@ body {
 }
 
 .container {
-  /* max-width: 1200px; */
-  /* margin: 0 auto; */
-  padding: 20px;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;  /* Default padding (px-4) */
+  padding-right: 1rem; /* Default padding (px-4) */
 }
+
+
+/* Small screens (sm) */
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;  /* sm:px-6 */
+    padding-right: 1.5rem; /* sm:px-6 */
+  }
+}/* Small screens (sm) */
+@media (min-width: 540px) {
+  .container {
+    padding-left: 1.5rem;  /* sm:px-6 */
+    padding-right: 1.5rem; /* sm:px-6 */
+  }
+}
+/* Small screens (sm) */
+@media (min-width: 720px) {
+  .container {
+    padding-left: 2rem;  /* sm:px-6 */
+    padding-right: 2rem; /* sm:px-6 */
+  }
+}
+/* Large screens (lg) */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2.25rem;  /* lg:px-9 */
+    padding-right: 2.25rem; /* lg:px-9 */
+  }
+}
+
 
 .trending-grid {
   display: grid;
@@ -108,16 +140,7 @@ body {
   text-align: center;
   margin-bottom: 20px;
 }
-.plan-button {
-  background-color: darkred;
-  color: white;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2em;
-  cursor: pointer;
-  margin: 20px 0;
-}
+
 .customize-section {
   max-width: 1200px;
   margin: 0 auto;

@@ -14,9 +14,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'lg-plus': '1056px', // Custom breakpoint for larger than 1055px
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        darkRed: '#8b0000'
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],  // Set Poppins as the default font

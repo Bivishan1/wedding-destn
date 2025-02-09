@@ -62,14 +62,14 @@ function NavBar() {
       <nav
         className={`font-semibold ${
           isHomePage ? "text-white" : "text-black"
-        } text-black fixed top-0 left-0 w-screen z-50 transition-all duration-300 ease-in-out
+        } fixed top-0 left-0 w-screen z-50 transition-all duration-300 ease-in-out
         ${
           isScrolled
             ? "bg-[rgb(220,130,130)]/95 shadow-lg backdrop-blur-sm"
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container lg-plus:pl-[29px]">
           <div className="flex justify-between items-center h-16">
             {/* Branch Section */}
             <div className="flex items-center">

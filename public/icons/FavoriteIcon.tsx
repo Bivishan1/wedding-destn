@@ -1,3 +1,4 @@
+'use client';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { SvgIconProps } from '@mui/material';
 

@@ -15,6 +15,18 @@ function NavBar() {
   const loginMenuRef = useRef<HTMLDivElement>(
     null as unknown as HTMLDivElement
   );
+  // State to manage the visibility of the navbar (hide on scroll down, show on scroll up)
+  const [showNavbar, setShowNavbar] = useState(true);
+  //current page active or not active
+  // const [isActive, setIsActive] = useState(false);//optional for future change
+  // Ref to store the last scroll position
+  const lastScrollY = useRef(0);
+  // Threshold (in pixels) before toggling the navbar
+  const SCROLL_DELTA_THRESHOLD = 200;
+
+    // storing router of page
+    const pathname = usePathname();
+    const isHomePage = pathname === "/";
 
   useCloseOnOutsideClick(
     isProfileOpen,
@@ -32,29 +44,38 @@ function NavBar() {
     setIsProfileOpen(!isProfileOpen);
   };
 
-  // storing router of page
-  // const router = useRouter();
-  const pathname = usePathname();
-  const isHomePage = pathname === "/";
-
-  //closing popup events
-  // <PopUpHandle firstRef={buttonRef} secondRef={loginMenuRef} isOpen={isProfileOpen} setIsOpen={setIsProfileOpen}/>
-
   // screen scrolling handlers
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      const currentScrollY = window.scrollY;
+
+      // Set background change if any scrolling has occurred
+      setIsScrolled(currentScrollY > 0);
+
+      // If near the top, always show the navbar and reset the baseline
+      if (currentScrollY < SCROLL_DELTA_THRESHOLD) {
+        setShowNavbar(true);
+        lastScrollY.current = currentScrollY;
+        return;
       }
+
+      // Calculate the difference from the last baseline
+      const diff = currentScrollY - lastScrollY.current;
+
+      if (diff > SCROLL_DELTA_THRESHOLD) {
+        // If the user scrolled down by more than the threshold, hide the navbar
+        setShowNavbar(false);
+        lastScrollY.current = currentScrollY; // reset baseline
+      } else if (diff < -SCROLL_DELTA_THRESHOLD) {
+        // If the user scrolled up by more than the threshold, show the navbar
+        setShowNavbar(true);
+        lastScrollY.current = currentScrollY; // reset baseline
+      }
+      // If the difference is less than the threshold, do nothing
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -62,14 +83,16 @@ function NavBar() {
       <nav
         className={`font-semibold ${
           isHomePage ? "text-white" : "text-black"
-        } fixed top-0 left-0 w-screen z-50 transition-all duration-300 ease-in-out
+        } fixed top-0 left-0 w-screen z-50 transition-all duration-500 ease-in-out
         ${
           isScrolled
-            ? "bg-[rgb(220,130,130)]/95 shadow-lg backdrop-blur-sm"
+            ? "bg-[rgb(200,130,130)]/95 shadow-lg backdrop-blur-sm"
             : "bg-transparent"
-        }`}
+        }
+            ${showNavbar ? "translate-y-0" : "-translate-y-full"}`}
       >
-        <div className="container lg-plus:pl-[29px]">
+        {/* translate-y-0 (visible) and -translate-y-full (hidden) */}
+        <div className="container xl: lg-plus:pl-[29px]">
           <div className="flex justify-between items-center h-16">
             {/* Branch Section */}
             <div className="flex items-center">
@@ -105,15 +128,24 @@ function NavBar() {
                 className="favorite-icon font-semibold cursor-pointer"
                 title="Favourites"
               >
-                <FavIcon fontSize={"large"} className="hover:text-red-800" />
+                <span className="md:hidden lg:block">
+
+                <FavIcon fontSize={"large"} className="hover:text-red-800"/>
+                </span>
               </div>
-              <button className={`${isHomePage ? 'bg-white text-red-900 rounded-2xl hover:bg-gray-400':'bg-black text-white rounded-md hover:bg-gray-800'} px-4 py-3  font-semibold  transition shadow-sm`}>
+              <button
+                className={`${
+                  isHomePage
+                    ? "bg-white text-red-900 rounded-2xl hover:bg-gray-400"
+                    : "bg-black text-white rounded-md hover:bg-gray-800"
+                } px-4 py-3  font-semibold  transition shadow-sm lg:block hidden`}
+              >
                 Get Started
               </button>
 
               <button
                 ref={desktopButtonRef}
-                className={`bg-red-900 border text-white shadow-md py-[7px] relative flex justify-center items-center gap-2 w-[66px] h-[49px] rounded-2xl hover:text-red-900 hover:bg-white transition-all duration-200 transform hover:scale-95 ${
+                className={`bg-red-900 border text-white shadow-md py-[7px] relative flex justify-center items-center gap-2 w-[66px] h-[49px] rounded-2xl hover:text-red-900 hover:bg-white transition-all duration-200 transform hover:scale-95 lg:block hidden ${
                   isProfileOpen ? "rounded-b-none" : "rounded-2xl"
                 }`}
                 onClick={toggleMenu}

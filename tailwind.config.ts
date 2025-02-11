@@ -15,7 +15,7 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        'lg-plus': '1056px', // Custom breakpoint for larger than 1055px
+        'lg-plus': '1056px', // Must come after 'lg'
       },
       colors: {
         background: "var(--background)",

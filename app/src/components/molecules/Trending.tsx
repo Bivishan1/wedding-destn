@@ -13,7 +13,7 @@ const Trending = () => {
       placeholder="placeholder" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
       <Image
         src=
-        "/img/venue1.jpg"
+        "/img/venue1.png"
         alt="image 1"
  width={1920}
           height={1080}
@@ -22,7 +22,7 @@ const Trending = () => {
        <div className="">
       <Image
         src=
-        "/img/venue2.jpg"
+        "/img/venue2.png"
         alt="image 2"
  width={1920}
           height={1080}
@@ -30,7 +30,7 @@ const Trending = () => {
       /></div>
       <Image
         src=
-         "/img/venue3.jpg"
+         "/img/venue3.png"
         alt="image 3"
          width={1920}
           height={1080}

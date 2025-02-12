@@ -96,7 +96,7 @@ export default function Home() {
         </div>
 
         <h2 className="text-4xl">Top selection</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-5 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg-plus:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-5 mb-10">
           {["Destination", "Decoration", "Food", "Mocktail/Cocktail"].map(
             (category, index) => (
               <div
@@ -122,12 +122,12 @@ export default function Home() {
         <Packages />
       </div>
       <div className="customize container border-y-gray-600 border-y-2 my-20">
-        <div className="customize-info flex gap-4 items-center p-9">
-          <div className="customize-text flex flex-col gap-20 justify-center items-center">
-            <h1 className="text-2xl text-center font-thin md:text-8xl font-samarKan" style={{color:'rgba(130, 2, 13, 0.4)'}}>
+        <div className="customize-info flex flex-col-reverse lg:flex-row sm:flex-col-reverse gap-4 items-center p-9">
+          <div className="customize-text flex flex-col gap-6 md:gap-20 justify-center items-center">
+            <h1 className="text-6xl text-center font-thin sm:text-8xl font-samarKan" style={{color:'rgba(130, 2, 13, 0.4)'}}>
               Customize yours
             </h1>
-            <button className="plan-button w-[50%] hover:shadow-2xl text-3xl md:text-2xl bg-darkRed text-white py-[12px] px-[30px] rounded-md border-none">
+            <button className="plan-button w-[70%] sm:w-[50%] hover:shadow-2xl text-xl sm:text-2xl bg-darkRed text-white py-[4px] sm:py-[12px] px-[30px] rounded-md border-none">
               Plan With Us
             </button>
           </div>
@@ -141,7 +141,7 @@ export default function Home() {
                 height={300}
               />
             </div>
-            <div className="customize-two-images flex flex-row md:flex-col w-full relative gap-8">
+            <div className="customize-two-images flex flex-col sm:flex-col w-full relative gap-8">
               <Image
                 className="w-full h-full object-cover"
                 src="/img/customize1.png"
@@ -179,7 +179,7 @@ export default function Home() {
             height={250}
           />
         </div>
-        <div className="faq-section mt-20 flex flex-wrap items-center">
+        <div className="faq-section mt-20 flex flex-col md:flex-row flex-wrap gap-4 md:gap-0  items-start md:items-center">
           <div className="faq-1 flex-1">
 
           <h3 className="text-4xl">Frequently <br/> Asked <br/> Questions</h3>

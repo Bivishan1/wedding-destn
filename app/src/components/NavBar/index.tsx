@@ -2,10 +2,10 @@
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { FavIcon } from "public/icons";
 import PersonIcon from "public/icons/PersonIcon";
 import { useCloseOnOutsideClick } from "@/hooks/useOutsideClick";
 import { useUI } from "@/context/PopUpContext";
+import Image from "next/image";
 
 function NavBar() {
   const { isProfileOpen, setIsProfileOpen } = useUI();
@@ -22,11 +22,11 @@ function NavBar() {
   // Ref to store the last scroll position
   const lastScrollY = useRef(0);
   // Threshold (in pixels) before toggling the navbar
-  const SCROLL_DELTA_THRESHOLD = 200;
+  const SCROLL_DELTA_THRESHOLD = 250;
 
-    // storing router of page
-    const pathname = usePathname();
-    const isHomePage = pathname === "/";
+  // storing router of page
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useCloseOnOutsideClick(
     isProfileOpen,
@@ -79,7 +79,7 @@ function NavBar() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className={`relative ${isHomePage ? `mb-0`: `mb-[76px]`}`}>
       <nav
         className={`font-semibold ${
           isHomePage ? "text-white" : "text-black"
@@ -96,9 +96,16 @@ function NavBar() {
           <div className="flex justify-between items-center h-16">
             {/* Branch Section */}
             <div className="flex items-center">
-              <span className="text-2xl font-bold font-workSans">
+              {/* <span className="text-2xl font-bold font-workSans">
                 Destination Wedding
-              </span>
+              </span> */}
+              <Image
+                alt="nav-logo"
+                className="object-center bg-cover"
+                src={`${isHomePage? `/icons/nav-icon.png`:`/icons/nav-icon.svg`}`}
+                width={40}
+                height={40}
+              />
             </div>
 
             {/* Centered Menu Links */}
@@ -128,15 +135,20 @@ function NavBar() {
                 className="favorite-icon font-semibold cursor-pointer"
                 title="Favourites"
               >
-                <span className="md:hidden lg:block">
-
-                <FavIcon fontSize={"large"} className="hover:text-red-800"/>
+                <span className={`${isHomePage? `md:hidden lg:block`:`hidden`}`}>
+                  <Image
+                    src="/icons/fav-list.png"
+                    alt="fav-list"
+                    width={40}
+                    height={40}
+                  />
+                  {/* <FavIcon fontSize={"large"} className="hover:text-red-800"/> */}
                 </span>
               </div>
               <button
                 className={`${
                   isHomePage
-                    ? "bg-white text-red-900 rounded-2xl hover:bg-gray-400"
+                    ? "bg-white text-red-900 rounded-2xl hover:bg-red-900 hover:text-white transition-all duration-300"
                     : "bg-black text-white rounded-md hover:bg-gray-800"
                 } px-4 py-3  font-semibold  transition shadow-sm lg:block hidden`}
               >
@@ -145,7 +157,7 @@ function NavBar() {
 
               <button
                 ref={desktopButtonRef}
-                className={`bg-red-900 border text-white shadow-md py-[7px] relative flex justify-center items-center gap-2 w-[66px] h-[49px] rounded-2xl hover:text-red-900 hover:bg-white transition-all duration-200 transform hover:scale-95 lg:block hidden ${
+                className={`bg-red-900 border text-white shadow-md py-[7px] relative flex justify-center items-center gap-2 w-[66px] h-[49px] rounded-2xl hover:text-red-900 hover:bg-white transition-all duration-200 transform hover:scale-95 lg:block ${
                   isProfileOpen ? "rounded-b-none" : "rounded-2xl"
                 }`}
                 onClick={toggleMenu}

@@ -11,7 +11,7 @@ const Plans = () => {
 
   const items= ['Resorts0','Resorts1','Resorts2'];
   return (
-    <div className="mt-24 lg:w-[1207px] md:w-[550px] mx-auto flex justify-center gap-5">
+    <div className="lg:w-[1207px] md:w-[550px] mx-auto flex justify-center gap-5">
       {/* Sidebar */}
       <div className="filter-sidbar w-[328px]">
         <h1 className="text-xl font-medium">Filters</h1>

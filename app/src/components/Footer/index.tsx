@@ -9,7 +9,7 @@ const Footer = () => {
     const quickLinks = ['Home', 'About', 'Contact', 'Plan', 'Login', 'Get Started'];
   return (
     
-      <div id="contact" className="container py-7 ">
+      <div id="contact" className="container py-24 mt-4 bg-gray-200 ">
         <div className="footer-info flex flex-wrap gap-36">
           <div className="footer-desc w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
             <div className="text-2xl mb-10 font-medium"><i>Destination Weeding</i> </div>
@@ -40,7 +40,7 @@ const Footer = () => {
           <div className="quick-links w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
             <h3 className="mb-8">Quick Links</h3>
             {quickLinks.map((link, index) => (
-                <h4 key={index} className="mb-6 font-medium"><Link href={`/${link.toLowerCase()}`}>{link}</Link></h4>
+                <h4 key={index} className="mb-6 font-medium hover:underline"><Link href={`/${link.toLowerCase()}`}>{link}</Link></h4>
                     ))}
           </div>
         </div>

@@ -12,7 +12,6 @@
 
 }
 
-
 /* overwriting the styles in the base layer. */
 @layer base {
   h1 {
@@ -50,22 +49,6 @@
   font-style: italic;
 }
 
-/* Define the Bold weight */
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
-  font-weight: bold; /* 700 weight */
-  font-style: normal;
-}
-
-/* Define the ExtraBold weight */
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-ExtraBold.ttf') format('truetype');
-  font-weight: 800; /* 800 weight */
-  font-style: normal;
-}
-
 @font-face {
   font-family: 'samarkan';
   src: url('/fonts/SAMAN___.TTF') format('opentype');
@@ -81,10 +64,10 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
 }
 body {
   margin: 0;
-  /* font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
 }

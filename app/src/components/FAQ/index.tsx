@@ -60,7 +60,7 @@ const FAQ: React.FC<Omit<FAQProps, "questions">> = ({
             className="faq-question faq-question py-4 flex justify-between items-center cursor-pointer "
             onClick={() => toggleFAQ(index)}
           >
-            <p className="text-lg font-medium">
+            <p className="text-xl font-semibold">
               <span className="hover:underline p-0 m-0 leading-[0]">
                 {item.question}
               </span>

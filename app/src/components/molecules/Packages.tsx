@@ -28,7 +28,7 @@ setActiveFAQ(activeFAQ === index ? null : index);
           {packages.map((pack, index) => (
             <div key={index} className="bg-blue-gray-50 rounded-md p-3 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
               <div className="packages">
-                <p className={`package  ${pack.toLowerCase() === 'standard'? 'bg-[#FF939D]  text-darkRed font-semibold hover:bg-[#FF6F7D]': 'bg-red-500 hover:bg-red-400'} p-5 rounded-md text-center text-white font-light text-2xl`}>
+                <p className={`package  ${pack.toLowerCase() === 'standard'? 'bg-[#FF939D]  text-darkRed font- hover:bg-[#FF6F7D] font-bold': 'bg-red-500 hover:bg-red-400 text-white'} p-5 rounded-md text-center  font-light text-2xl`}>
                   {pack}
                 </p>
                 <div className="">

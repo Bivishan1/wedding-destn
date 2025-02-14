@@ -1,4 +1,5 @@
 import Image from "next/image";
+// import  "@/styles/global.css";
 import Heart from "@/components/atoms/Heart";
 import Trending from "@/components/molecules/Trending";
 import Packages from "@/components/molecules/Packages";
@@ -34,6 +35,13 @@ export default function Home() {
     },
   ];
 
+  const venueDescriptions:Record<string, string> = {
+    "Chandragiri Resort": "Experience luxury at Chandragiri Resort with breathtaking views and top-notch amenities.",
+    "Venue 1": "A beautiful event space perfect for weddings, conferences, and celebrations.",
+    "Venue 2": "A cozy retreat with modern facilities, ideal for corporate gatherings and private events.",
+    "Venue 3": "A scenic getaway featuring lush greenery and state-of-the-art event spaces.",
+  };
+
   return (
     <div>
       <main
@@ -47,8 +55,8 @@ export default function Home() {
             <h2 className="text-6xl mb-5 sm:text-4xl lg:text-5xl font-bold leading-tight text-white font-samarKan">
               Plan Your Destination Wedding
             </h2>
-            <button className="text-red-800 font-semibold border-none px-3 py-4 rounded cursor-pointer hover:bg-gray-400 bg-white">
-              <Link href="#packages"> See Plans</Link>
+            <button className="text-red-900 hover:bg-red-900 hover:text-white transition-all duration-300 transform font-semibold border-none px-3 py-4 rounded-2xl cursor-pointer  bg-white">
+              <Link href="#packages" className="text-lg font-sans"> See Plans</Link>
             </button>
           </div>
         </div>
@@ -77,16 +85,13 @@ export default function Home() {
                   className="destination-card flex flex-col rounded-lg overflow-hidden shadow-md bg-white"
                 >
                   <div className="destination w-full relative bg-[#f0f0f0] rounded-2xl">
-                    <Trending />
+                    <Trending title={title} />
                     <Heart className="cursor-pointer" />
                   </div>
                   <div className="card-content my-4">
                     <h3>{title}</h3>
                     <p>
-                      Description: this is a description part Lorem ipsum dolor
-                      sit amet consectetur adipisicing elit. Dolore repellendus
-                      assumenda eveniet asperiores sint sunt, esse, vero
-                      veritatis dolores dolorem, perferendis.
+                      {venueDescriptions[title] || "No description available."}
                     </p>
                   </div>
                 </div>
@@ -101,18 +106,42 @@ export default function Home() {
             (category, index) => (
               <div
                 key={index}
-                className="bg-white shadow-lg p-4 rounded-lg"
+                className="group relative bg-white shadow-lg p-4 rounded-lg hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="w-full h-[230px] flex flex-col justify-center items-center">
-                <Image
-                  className="h-full w-full object-cover rounded-lg mb-2 "
-                  src={`/img/venue${index + 1}.png`}
-                  alt={category}
-                  width={300}
-                  height={310}
-                /></div>
+                <div className="w-full h-[230px] flex flex-col justify-center items-center relative overflow-hidden">
+                  <Image
+                    className="h-full w-full rounded-lg mb-2"
+                    src={`/img/venue${index + 1}.png`}
+                    alt={category}
+                    width={300}
+                    height={310}
+                  />
+                   {/* Gray Blur Overlay (appears on hover) */}
+                   <div className="absolute inset-0 bg-gray-200 opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+
+
+                  {/* Hover Arrow Indicator */}
+                  <button className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 p-1.5 w- bg-white rounded border border-gray-200 hover:scale-105 cursor-pointer shadow-sm">
+                  {/* <Image src={"/icons/arrow.png"}
+                    className="w-9 h-7 object-cover object-center"
+                    alt="Arrow Right" width={50} height={50} /> */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-black"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                </div>
                 <p className="font-bold">{category}</p>
-              
               </div>
             )
           )}
@@ -124,7 +153,10 @@ export default function Home() {
       <div className="customize container border-y-gray-600 border-y-2 my-20">
         <div className="customize-info flex flex-col-reverse lg:flex-row sm:flex-col-reverse gap-4 items-center p-9">
           <div className="customize-text flex flex-col gap-6 md:gap-20 justify-center items-center">
-            <h1 className="text-6xl text-center font-thin sm:text-8xl font-samarKan" style={{color:'rgba(130, 2, 13, 0.4)'}}>
+            <h1
+              className="text-6xl text-center font-thin sm:text-8xl font-samarKan"
+              style={{ color: "rgba(130, 2, 13, 0.4)" }}
+            >
               Customize yours
             </h1>
             <button className="plan-button w-[70%] sm:w-[50%] hover:shadow-2xl text-xl sm:text-2xl bg-darkRed text-white py-[4px] sm:py-[12px] px-[30px] rounded-md border-none">
@@ -165,7 +197,7 @@ export default function Home() {
       <div className="container plan-info mt-7">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12 py-10 h-auto">
           <div className="text-info w-full sm:w-3/4 md:w-2/5 text-2xl overflow-hidden break-words">
-            <p className="text-3xl">
+            <p className="text-3xl text-gray-800">
               Plan your wedding with sweeter memories and better view. We
               intertwine tradition and adventure.
             </p>
@@ -181,9 +213,10 @@ export default function Home() {
         </div>
         <div className="faq-section mt-20 flex flex-col md:flex-row flex-wrap gap-4 md:gap-0  items-start md:items-center">
           <div className="faq-1 flex-1">
-
-          <h3 className="text-4xl">Frequently <br/> Asked <br/> Questions</h3>
-          <small>cause our website is transparent</small>
+            <h3 className="text-4xl">
+              Frequently <br /> Asked <br /> Questions
+            </h3>
+            <small>cause our website is transparent</small>
           </div>
           <div className="faq-item flex-1 border-b border-b-white mb-5">
             <div className="">
@@ -191,7 +224,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
       </div>
       <GoToTop />
     </div>

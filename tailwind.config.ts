@@ -20,7 +20,7 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        darkRed: '#8b0000'
+        darkRed: '#870C2D',
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],  // Set Poppins as the default font

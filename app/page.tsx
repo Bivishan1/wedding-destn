@@ -159,7 +159,7 @@ export default function Home() {
             >
               Customize yours
             </h1>
-            <button className="plan-button w-[70%] sm:w-[50%] hover:shadow-2xl text-xl sm:text-2xl bg-darkRed text-white py-[4px] sm:py-[12px] px-[30px] rounded-md border-none">
+            <button className="plan-button w-[70%] sm:w-[50%] hover:shadow-2xl text-xl sm:text-2xl bg-[#82020D] text-white py-[4px] sm:py-[12px] px-[30px] rounded-md border-none">
               Plan With Us
             </button>
           </div>

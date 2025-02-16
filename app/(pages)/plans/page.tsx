@@ -1,7 +1,8 @@
 "use client";
-import React, { useState} from "react";
+import React, { useState } from "react";
 import AccordionM from "@/components/atoms/AccordionM";
 import Calendar from "@/components/organisms/Calendar";
+import CarouselC from "@/components/molecules/CarouselC";
 
 const Plans = () => {
   const [minVal, setMinVal] = useState(1000);
@@ -9,16 +10,36 @@ const Plans = () => {
   const min = 0;
   const max = 5000;
 
-  const items= ['Resorts0','Resorts1','Resorts2'];
+  const items = ["Resorts0", "Resorts1", "Resorts2"];
+  const vendors = ["Photographers", "Lights", "Flowers"];
+
+  // carousel lists
+  const venues = ["Chandragiri Resort", "Venue 1", "Venue 2"];
+
+  const venueDescriptions: Record<string, string> = {
+    "Chandragiri Resort":
+      "Experience luxury at Chandragiri Resort with breathtaking views and top-notch amenities.",
+    "Venue 1":
+      "A beautiful event space perfect for weddings, conferences, and celebrations.",
+    "Venue 2":
+      "A cozy retreat with modern facilities, ideal for corporate gatherings and private events.",
+    "Venue 3":
+      "A scenic getaway featuring lush greenery and state-of-the-art event spaces.",
+  };
+
+  const imageMap: Record<string, string[]> = {
+    "Chandragiri Resort": ["/img/rupakot.jpg", "/img/trending1.jpg", "/img/trending3.jpg"],
+    "Venue 1": ["/img/rupakot.jpg", "/img/trending2.jpg", "/img/trending3.jpg"],
+    "Venue 2": ["/img/rupakot.jpg", "/img/trending2.jpg", "/img/trending1.jpg"],
+  };
+
   return (
     <div className="lg:w-[1207px] md:w-[550px] mx-auto flex justify-center gap-5">
       {/* Sidebar */}
       <div className="filter-sidbar w-[328px]">
         <h1 className="text-xl font-medium">Filters</h1>
         <div className="budget-section">
-          <h2 className="text-xl font-bold text-opacity-25 mt-7">
-            Budget
-          </h2>
+          <h2 className="text-xl font-bold text-opacity-25 mt-7">Budget</h2>
           <div className="range flex gap-4 items-center">
             <div className="min relative">
               <p>Min</p>
@@ -111,27 +132,50 @@ const Plans = () => {
         </div>
         {/* Horizontal Line  */}
         <div className="border-b border-gray-300 my-10"></div>
-              {/* Venue Accordion */}
-              <div className="venue mb-7">
-
-        <AccordionM items={items} heading={'Venue'}/>
-              </div>
-               {/* Horizontal Line  */}
+        {/* Venue Accordion */}
+        <div className="venue mb-7">
+          <AccordionM items={items} heading={"Venue"} />
+        </div>
+        {/* Horizontal Line  */}
         <div className="border-b border-gray-300 my-10"></div>
         {/* Date & Time */}
 
         <h4>Wedding Date and Timeline</h4>
-        <Calendar/>
-
+        <Calendar />
+        {/* Horizontal Line  */}
+        <div className="border-b border-gray-300 my-10"></div>
+        {/* Vendors selection */}
+        <AccordionM items={vendors} heading={"Vendor"} />
       </div>
       {/* Hero Content */}
-      <div className="main-content w-[1082px]">
-        <p className="">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui esse et
-          in blanditiis molestias nostrum necessitatibus quas error, quis
-          quibusdam voluptate repellat dolorum consequuntur obcaecati nobis,
-          impedit architecto soluta hic?
-        </p>
+      <div className="main-content p-5 w-[1082px] mt-14">
+        <div className="trending-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {venues.map((venue, index) => (
+            <CarouselC
+              key={index}
+              title={venue}
+              venuesD={venueDescriptions[venue]}
+              imageMap={imageMap}
+              button={"Add"}
+            />
+          ))}
+          {venues.map((venue, index) => (
+            <CarouselC
+              key={index}
+              title={venue}
+              venuesD={venueDescriptions[venue]}
+              imageMap={imageMap}
+            />
+          ))}
+          {venues.map((venue, index) => (
+            <CarouselC
+              key={index}
+              title={venue}
+              venuesD={venueDescriptions[venue]}
+              imageMap={imageMap}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

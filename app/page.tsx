@@ -1,7 +1,7 @@
 import Image from "next/image";
 // import  "@/styles/global.css";
-import Heart from "@/components/atoms/Heart";
-import Trending from "@/components/molecules/Trending";
+// import Heart from "@/components/atoms/Heart";
+import CarouselC from "@/components/molecules/CarouselC";
 import Packages from "@/components/molecules/Packages";
 import GoToTop from "@/components/atoms/GoToTop";
 import FAQ from "@/components/FAQ";
@@ -35,11 +35,20 @@ export default function Home() {
     },
   ];
 
+  const venues = ["Chandragiri Resort", "Venue 1", "Venue 2", "Venue 3"];
+
   const venueDescriptions:Record<string, string> = {
     "Chandragiri Resort": "Experience luxury at Chandragiri Resort with breathtaking views and top-notch amenities.",
     "Venue 1": "A beautiful event space perfect for weddings, conferences, and celebrations.",
     "Venue 2": "A cozy retreat with modern facilities, ideal for corporate gatherings and private events.",
     "Venue 3": "A scenic getaway featuring lush greenery and state-of-the-art event spaces.",
+  };
+
+  const imageMap: Record<string, string[]> = {
+    "Chandragiri Resort": ["/img/trending2.jpg", "/img/trending1.jpg", "/img/trending3.jpg"],
+    "Venue 1": ["/img/trending1.jpg", "/img/trending2.jpg", "/img/trending3.jpg"],
+    "Venue 2": ["/img/trending3.jpg", "/img/trending2.jpg", "/img/trending1.jpg"],
+    "Venue 3": ["/img/venue3.png", "/img/venue2.png", "/img/venue1.png"],
   };
 
   return (
@@ -72,31 +81,16 @@ export default function Home() {
       </section>
 
       <div id="destination" className="container h-2/4 py-12">
-        <div className="trending">
+        <div className="trendingg">
           <div className="header mb-5 flex justify-between items-center">
             <h2 className="text-4xl">Top Trending Wedding Destinations</h2>
           </div>
-
           <div className="trending-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {["Chandragiri Resort", "Venue 1", "Venue 2", "Venue 3"].map(
-              (title, index) => (
-                <div
-                  key={index}
-                  className="destination-card flex flex-col rounded-lg overflow-hidden shadow-md bg-white"
-                >
-                  <div className="destination w-full relative bg-[#f0f0f0] rounded-2xl">
-                    <Trending title={title} />
-                    <Heart className="cursor-pointer" />
-                  </div>
-                  <div className="card-content my-4">
-                    <h3>{title}</h3>
-                    <p>
-                      {venueDescriptions[title] || "No description available."}
-                    </p>
-                  </div>
-                </div>
-              )
-            )}
+
+          {venues.map((venue, index)=> (
+
+          <CarouselC key={index} title={venue} venuesD={venueDescriptions[venue]} imageMap={ imageMap}/>
+          ))}
           </div>
         </div>
 

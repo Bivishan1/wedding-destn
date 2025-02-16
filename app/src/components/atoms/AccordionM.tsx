@@ -34,18 +34,18 @@ const AccordionM: React.FC<AccordionProps> = ({ items, heading }) => {
           </div>
           {/* smooth transition */}
           <div
-            className={`overflow-hidden transition-all duration-300 ease-in-out ${
-              activeFAQ ? "h-36" : "h-0"
+            className={`overflow-hidden transition-all duration-300 ease-in-out mt-[9px] ${
+              activeFAQ ? "h-40" : "h-0"
             }`}
           >
             <div className="">
-              {items.map((item) =>(
+              {items.map((item, index) =>(
                < div key={item}>
-                    <p className="mb-0 hover:cursor-pointer hover:bg-red-700 hover:text-white py-3 pl-2">
+                    <p className={`mb-0 hover:cursor-pointer hover:bg-red-700 hover:text-white py-3 pl-2 border border-gray-300 ${index === items.length - 1 ? 'rounded-b-lg' : ''}`}>
                      {item}
                      
                     </p>
-                    <span className="border-b border-gray-300 block"></span>
+                    {/* <span className="border border-gray-300 block"></span> */}
                     
                    </div>
               ))

@@ -28,7 +28,7 @@ function NavBar() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const isPlans = pathname === "/plans";
-  const isDestination = pathname === "/destination";
+  // const isDestination = pathname === "/destination";
 
   useCloseOnOutsideClick(
     isProfileOpen,

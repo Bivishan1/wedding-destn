@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { UpIcon } from "../../../../public/icons";
 import { DownIcon } from "../../../../public/icons";
+import Link from "next/link";
 
 interface AccordionProps {
     items: string[];
@@ -41,12 +42,13 @@ const AccordionM: React.FC<AccordionProps> = ({ items, heading }) => {
             <div className="">
               {items.map((item, index) =>(
                < div key={item}>
+                <Link href={`/resorts/${index}`}>
                     <p className={`mb-0 hover:cursor-pointer hover:bg-red-700 hover:text-white py-3 pl-2 border border-gray-300 ${index === items.length - 1 ? 'rounded-b-lg' : ''}`}>
                      {item}
                      
                     </p>
                     {/* <span className="border border-gray-300 block"></span> */}
-                    
+                    </Link>
                    </div>
               ))
                 }

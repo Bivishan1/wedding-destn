@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { UpIcon } from "../../../../public/icons";
-import { DownIcon } from "../../../../public/icons";
+import React from "react";
+// import { UpIcon } from "../../../../public/icons";
+// import { DownIcon } from "../../../../public/icons";
 import Link from "next/link";
 
 interface AccordionItem {
@@ -17,33 +17,32 @@ interface AccordionProps {
 
 const AccordionM: React.FC<AccordionProps> = ({ items, heading }) => {
   // const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
-  const [activeFAQ, setActiveFAQ] = useState(false);
+  // const [activeFAQ, setActiveFAQ] = useState(false);
 
   // Toggle logic: If clicked FAQ is already active, close it (set to null), otherwise set to the clicked FAQ's index
-  const toggleAccordion = () => {
-    // setActiveFAQ((prev) => (prev === index ? null : index));
-    setActiveFAQ(!activeFAQ);
-  };
+  // const toggleAccordion = () => {
+  //   // setActiveFAQ((prev) => (prev === index ? null : index));
+  //   setActiveFAQ(!activeFAQ);
+  // };
   return (
     <div>
       
         <div className="">
           {/* Accordion Header */}
           <div
-            className="packages flex justify-between items-center my-2 cursor-pointer"
-            onClick={() => toggleAccordion()}
+            className="packages flex justify-between items-center my-2"
           >
-            <h5 className="font-semibold">{heading}</h5>
-            <span className="text-xl">
+            <h5 className="font-semibold underline">{heading}</h5>
+            {/* <span className="text-xl">
               {activeFAQ ? <DownIcon /> : <UpIcon />}
-            </span>
+            </span> */}
           </div>
           {/* smooth transition */}
-          <div
+          {/* <div
             className={`overflow-hidden transition-all duration-300 ease-in-out mt-[9px] ${
               activeFAQ ? "h-40" : "h-0"
             }`}
-          >
+          > */}
             <div className="">
               {items.map((item, index) =>(
                < div key={item.id}>
@@ -61,7 +60,7 @@ const AccordionM: React.FC<AccordionProps> = ({ items, heading }) => {
           </div>
         </div>
     
-    </div>
+    // </div>
   );
 };
 

@@ -64,7 +64,7 @@ export default function Home() {
             <h2 className="text-6xl mb-5 sm:text-4xl lg:text-5xl font-bold leading-tight text-white font-samarKan">
               Plan Your Destination Wedding
             </h2>
-            <button className="text-red-900 hover:bg-red-900 hover:text-white transition-all duration-300 transform font-semibold border-none px-3 py-4 rounded-2xl cursor-pointer  bg-white">
+            <button className="text-red-900 hover:bg-red-900 hover:text-white transition-all duration-300 transform font-semibold border-none px-3 py-3 rounded-2xl cursor-pointer  bg-white">
               <Link href="#packages" className="text-lg font-sans"> See Plans</Link>
             </button>
           </div>

@@ -27,6 +27,8 @@ function NavBar() {
   // storing router of page
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isPlans = pathname === "/plans";
+  const isDestination = pathname === "/destination";
 
   useCloseOnOutsideClick(
     isProfileOpen,
@@ -79,10 +81,10 @@ function NavBar() {
   }, []);
 
   return (
-    <div className={`relative ${isHomePage ? `mb-0`: `mb-[76px]`}`}>
+    <div className={`relative mb-[64px]`}>
       <nav
-        className={`font-semibold ${
-          isHomePage ? "text-white" : "text-black"
+        className={`font-semibold bg-[#e1306c] border-b-2 border-b-gray-600 ${
+          isHomePage ? "text-black" : "text-black"
         } fixed top-0 left-0 w-screen z-50 transition-all duration-500 ease-in-out
         ${
           isScrolled
@@ -109,23 +111,23 @@ function NavBar() {
             </div>
 
             {/* Centered Menu Links */}
-            <div className="hidden md:flex justify-center flex-1 space-x-8">
-              <Link href="/" className=" relative group text-lg active">
+            <div className="hidden md:flex justify-center flex-1 space-x-8 text-[#f8f5f1]">
+              <Link href="/" className=" relative group active">
                 Home
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#AD1616] group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </Link>
 
-              <Link href="/plans" className="  text-lg relative group">
+              <Link href="/plans" className="relative group">
                 Plans
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#AD1616] group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </Link>
-              <Link href="#destination" className="  text-lg relative group">
+              <Link href="#destination" className="relative group">
                 Destination
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#AD1616] group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </Link>
-              <Link href="#contact" className="  text-lg relative group">
+              <Link href="#contact" className="relative group">
                 Contact Us
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-red-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#AD1616] group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </Link>
             </div>
 
@@ -135,12 +137,12 @@ function NavBar() {
                 className="favorite-icon font-semibold cursor-pointer"
                 title="Favourites"
               >
-                <span className={`${isHomePage? `md:hidden lg:block`:`hidden`}`}>
+                <span className={`${isHomePage || isPlans ? `md:hidden lg:block`:`hidden`}`}>
                   <Image
                     src="/icons/fav-list.png"
                     alt="fav-list"
-                    width={40}
-                    height={40}
+                    width={30}
+                    height={30}
                   />
                   {/* <FavIcon fontSize={"large"} className="hover:text-red-800"/> */}
                 </span>
@@ -149,15 +151,15 @@ function NavBar() {
                 className={`${
                   isHomePage
                     ? "bg-white text-red-900 rounded-2xl hover:bg-red-900 hover:text-white transition-all duration-300"
-                    : "bg-black text-white rounded-md hover:bg-gray-800"
-                } px-4 py-3  font-semibold  transition shadow-sm lg:block hidden`}
+                    : "bg-black text-white rounded-lg hover:bg-gray-800"
+                } px-2 py-2  font-medium  transition shadow-sm lg:block hidden`}
               >
                 Get Started
               </button>
 
               <button
                 ref={desktopButtonRef}
-                className={`bg-red-900 border text-white shadow-md py-[7px] relative flex justify-center items-center gap-2 w-[66px] h-[49px] rounded-2xl hover:text-red-900 hover:bg-white transition-all duration-200 transform hover:scale-95 lg:block ${
+                className={` border  shadow-md relative flex justify-center items-center gap-2 h-[29px] rounded-2xl text-red-900 bg-white transition-all duration-200 transform hover:scale-95 lg:block ${
                   isProfileOpen ? "rounded-b-none" : "rounded-2xl"
                 }`}
                 onClick={toggleMenu}

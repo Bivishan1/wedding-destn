@@ -91,7 +91,7 @@ const DateTimelineSelector = () => {
 
       {isCalendarOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-          <div ref={calendarRef} className="bg-white rounded-lg shadow-lg p-4 max-w-2xl w-full">
+          <div ref={calendarRef} className="bg-white rounded-lg shadow-lg p-4">
             <DateRangePicker
               ranges={[selectedRange]}
               onChange={handleSelect}

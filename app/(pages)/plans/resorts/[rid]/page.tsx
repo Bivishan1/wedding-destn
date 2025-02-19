@@ -12,7 +12,7 @@ import { useRouter, useParams } from "next/navigation";
 const resorts = [
     {
       id: "1",
-      name: "ChandraGiri Resort",
+      name: "Chandragiri Resort",
       images: ["/img/c-resort1.jpg", "/img/trending3.jpg", "/img/trending2.jpg", "/img/c-resort-people.jpg"],
       description1: "A beautiful beachside resort with a stunning view, offering luxury accommodations and fine dining.",
       description2: "Enjoy breathtaking sunsets, spa treatments, and adventure activities like scuba diving and jet skiing."
@@ -61,7 +61,7 @@ export default function Page  () {
   }, [rid, router]);
     
       if (!resort) {
-        return <div className="text-center text-white py-10">Resort not found!</div>;
+        return <div className="text-center text-white py-10">Loading resort details...</div>;
       }
       
   return (

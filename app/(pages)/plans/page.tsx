@@ -10,8 +10,15 @@ const Plans = () => {
   const min = 0;
   const max = 5000;
 
-  const items = ["Resorts0", "Resorts1", "Resorts2"];
-  const vendors = ["Photographers", "Lights", "Flowers"];
+  const items = [
+    {id:1, name:'Resorts0'},
+    {id:2, name:'Resorts1'},
+    {id:3, name:'Resorts2'}]
+    
+  const vendors = [
+    {id:1, name:'Photographers'},
+    {id:2, name:'Lights'},
+    {id:3, name:'Flowers'}];
 
   // carousel lists
   const venues = ["Chandragiri Resort", "Venue 1", "Venue 2"];

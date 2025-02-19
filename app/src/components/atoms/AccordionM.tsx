@@ -3,8 +3,13 @@ import { UpIcon } from "../../../../public/icons";
 import { DownIcon } from "../../../../public/icons";
 import Link from "next/link";
 
+interface AccordionItem {
+  id: number;
+  name: string;
+}
+
 interface AccordionProps {
-    items: string[];
+    items: AccordionItem[];
     heading: string;
     // features: { [key: string]: string[] }; // Features by package
     pack?: string[]; // Optional array of package names like ["Basic", "Standard", "Premium"]
@@ -41,10 +46,10 @@ const AccordionM: React.FC<AccordionProps> = ({ items, heading }) => {
           >
             <div className="">
               {items.map((item, index) =>(
-               < div key={item}>
-                <Link href={`/resorts/${index}`}>
+               < div key={item.id}>
+                <Link href={`plans/resorts/${item.id}`}>
                     <p className={`mb-0 hover:cursor-pointer hover:bg-red-700 hover:text-white py-3 pl-2 border border-gray-300 ${index === items.length - 1 ? 'rounded-b-lg' : ''}`}>
-                     {item}
+                     {item.name}
                      
                     </p>
                     {/* <span className="border border-gray-300 block"></span> */}

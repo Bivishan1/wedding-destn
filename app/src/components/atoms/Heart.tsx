@@ -1,6 +1,8 @@
 'use client';
 import React, { useState } from 'react'
 import { HeartProps } from '../types/heart.types';
+import FavoriteBIcon from 'public/icons/FavoriteBorderIcon';
+import FavoriteFillIcon from 'public/icons/FavoriteFillIcon';
 
 const Heart: React.FC<HeartProps> = ({
   initialState = Array(4).fill(false), // Default to 4 hearts, all unliked
@@ -31,7 +33,7 @@ const Heart: React.FC<HeartProps> = ({
                     className={`heart-btn absolute top-2 right-2 bg-none border-none text-white ${className} text-4xl`}
                     onClick={() => toggleHeart(index)} // Pass index to the handler
                 >
-                    {state ? '♥' : '♡'}
+                    {state ? <FavoriteFillIcon/> : <FavoriteBIcon/>}
                 </button>
             ))}
     </>

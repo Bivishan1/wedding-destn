@@ -86,13 +86,7 @@ function NavBar() {
         className={`font-semibold bg-[#e1306c] border-b-2 border-b-gray-600 ${
           isHomePage ? "text-black" : "text-black"
         } fixed top-0 left-0 w-screen z-50 transition-all duration-500 ease-in-out
-        ${
-          isScrolled
-            ? "bg-[rgb(200,130,130)]/95 shadow-lg backdrop-blur-sm"
-            : "bg-transparent"
-        }
-            ${showNavbar ? "translate-y-0" : "-translate-y-full"}`}
-      >
+            ${showNavbar ? "translate-y-0" : "-translate-y-full"}`}>
         {/* translate-y-0 (visible) and -translate-y-full (hidden) */}
         <div className="container xl: lg-plus:pl-[29px]">
           <div className="flex justify-between items-center h-16">

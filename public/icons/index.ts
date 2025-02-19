@@ -7,3 +7,6 @@ export { default as GoogleIcon } from './GoogleIcon';
 export { default as WhatsAppIcon } from './WhatsappIcon';
 export { default as MenuIcon } from './MenuIcon';
 export { default as FavIcon } from './FavoriteIcon';
+export { default as FavFIllIcon } from './FavoriteFillIcon';
+export { default as FavBorderIcon } from './FavoriteBorderIcon';
+

@@ -9,7 +9,7 @@ interface YourDestinationProps {
 }
 
 const YourDestination: React.FC<YourDestinationProps> = ({ icon, alt, heading, description, extraClass = '' }) => (
-  <div className={`border border-gray-500 rounded-xl py-[46px] px-[23px] shadow-md ${extraClass}`}>
+  <div className={`border border-gray-500 rounded-xl py-[46px] px-[23px] shadow-md transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-[0_0_80px_#c5a7a740] ${extraClass} `}>
     <div className="flex items-center justify-center gap-4">
       <Image
         className="w-[74px] h-[70px]"

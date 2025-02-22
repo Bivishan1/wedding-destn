@@ -24,9 +24,9 @@ setActiveFAQ(activeFAQ === index ? null : index);
         <h3 className="text-center font-medium mb-12">
           Pick the plans that right for you!
         </h3>
-        <div className="flex flex-wrap justify-center items-start m-auto gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-start gap-10">
           {packages.map((pack, index) => (
-            <div key={index} className="bg-blue-gray-50 rounded-md p-3 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+            <div key={index} className="bg-blue-gray-50 rounded-md p-3 md:w-full sm:w-2/3 sm:mx-auto">
               <div className="packages">
                 <p className={`package  ${pack.toLowerCase() === 'standard'? 'bg-[#FF939D]  text-darkRed font- hover:bg-[#FF6F7D] font-bold': 'bg-red-500 hover:bg-red-400 text-white'} p-5 rounded-md text-center  font-light text-2xl`}>
                   {pack}

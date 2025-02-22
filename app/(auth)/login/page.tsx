@@ -29,7 +29,7 @@ import { useRouter } from 'next/navigation';
   
 
   return (
-    <div className="bg-red-50">
+    <div className="bg-red-50 mt-[64px]">
       <div className="wrapper1 min-h-screen w-full bg-figma bg-custom bg-no-repeat flex items-center justify-center z-0">
         <div className="wrapper2 min-h-screen w-[80%] sm:w-1/2 md:w-1/2 lg:w-1/3 bg-figma1 bg-custom-half bg-center bg-no-repeat p-10 flex items-center justify-center z-10">
           <div className="wrapper-content">

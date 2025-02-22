@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 // import  "@/styles/global.css";
 // import Heart from "@/components/atoms/Heart";
@@ -7,6 +8,8 @@ import GoToTop from "@/components/atoms/GoToTop";
 import FAQ from "@/components/FAQ";
 import Link from "next/link";
 import YourDestination from "@/components/molecules/YourDest";
+import Selection from "@/components/molecules/Selection";
+
 export default function Home() {
   const yourDestinationData = [
     {
@@ -37,26 +40,38 @@ export default function Home() {
 
   const venues = ["Chandragiri Resort", "Venue 1", "Venue 2", "Venue 3"];
 
-  const venueDescriptions:Record<string, string> = {
-    "Chandragiri Resort": "Experience luxury at Chandragiri Resort with breathtaking views and top-notch amenities.",
-    "Venue 1": "A beautiful event space perfect for weddings, conferences, and celebrations.",
-    "Venue 2": "A cozy retreat with modern facilities, ideal for corporate gatherings and private events.",
-    "Venue 3": "A scenic getaway featuring lush greenery and state-of-the-art event spaces.",
-  };
+  // const venueDescriptions:Record<string, string> = {
+  //   "Chandragiri Resort": "Experience luxury at Chandragiri Resort with breathtaking views and top-notch amenities.",
+  //   "Venue 1": "A beautiful event space perfect for weddings, conferences, and celebrations.",
+  //   "Venue 2": "A cozy retreat with modern facilities, ideal for corporate gatherings and private events.",
+  //   "Venue 3": "A scenic getaway featuring lush greenery and state-of-the-art event spaces.",
+  // };
 
   const imageMap: Record<string, string[]> = {
-    "Chandragiri Resort": ["/img/trending2.jpg", "/img/trending1.jpg", "/img/trending3.jpg"],
-    "Venue 1": ["/img/trending1.jpg", "/img/trending2.jpg", "/img/trending3.jpg"],
-    "Venue 2": ["/img/trending3.jpg", "/img/trending2.jpg", "/img/trending1.jpg"],
+    "Chandragiri Resort": [
+      "/img/trending2.jpg",
+      "/img/trending1.jpg",
+      "/img/trending3.jpg",
+    ],
+    "Venue 1": [
+      "/img/trending1.jpg",
+      "/img/trending2.jpg",
+      "/img/trending3.jpg",
+    ],
+    "Venue 2": [
+      "/img/trending3.jpg",
+      "/img/trending2.jpg",
+      "/img/trending1.jpg",
+    ],
     "Venue 3": ["/img/venue3.png", "/img/venue2.png", "/img/venue1.png"],
   };
 
   return (
-    <div>
+    <div className="">
       <main
         id="home"
-        className="relative top-0 bg-hero bg-no-repeat bg-center 
-        bg-cover h-[120vh] flex flex-col 
+        className="relative w-full h-[124vh] bg-hero bg-no-repeat bg-center 
+        bg-cover flex flex-col 
         justify-center items-center text-center py-12 lg:py-20"
       >
         <div className="container">
@@ -65,15 +80,63 @@ export default function Home() {
               Plan Your Destination Wedding
             </h2>
             <button className="text-red-900 hover:bg-red-900 hover:text-white transition-all duration-300 transform font-semibold border-none px-3 py-3 rounded-2xl cursor-pointer  bg-white">
-              <Link href="#packages" className="text-lg font-sans"> See Plans</Link>
+              <Link href="#packages" className="text-lg font-sans">
+                {" "}
+                See Plans
+              </Link>
             </button>
           </div>
         </div>
       </main>
 
-      <section className="your-destination container m mb-20">
-        <h3 className="my-16 text-4xl">Your Destination</h3>
-        <div className="your-destination-info flex flex-col md:flex-row gap-10">
+      <section className="your-destination container mb-20 relative">
+        {/* Base gradient background */}
+      <div className="absolute -inset-x-[30%] -inset-y-[30%] " style={{
+    background: `linear-gradient(
+      to bottom,
+      transparent,
+      #e76363 30%,
+      #e76363 70%,
+      transparent
+    )`,
+    opacity: 0.3
+  }} />
+      
+      {/* Grid with vertical fade effect */}
+      <div 
+        className="absolute -inset-x-[30%] -inset-y-[30%]"
+        style={{
+          background: `
+            linear-gradient(to right, #2b2b4a 1px, transparent 1px),
+            linear-gradient(to bottom, #2b2b4a 1px, transparent 1px)
+          `,
+          backgroundSize: '20px 20px',
+          mask: `
+            linear-gradient(
+              to bottom,
+              transparent,
+              black 20%,
+              black 80%,
+              transparent
+            )
+          `,
+          WebkitMask: `
+            linear-gradient(
+              to bottom,
+              transparent,
+              black 20%,
+              black 80%,
+              transparent
+            )
+          `,
+          opacity: 0.07,
+          zIndex: 2
+        }}
+      />
+
+        <h3 className="my-16 text-4xl relative z-10">Your Destination</h3>
+
+        <div className="your-destination-info flex flex-col md:flex-row gap-10 relative z-10">
           {yourDestinationData.map((data, index) => (
             <YourDestination key={index} {...data} />
           ))}
@@ -86,59 +149,15 @@ export default function Home() {
             <h2 className="text-4xl">Top Trending Wedding Destinations</h2>
           </div>
           <div className="trending-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-          {venues.map((venue, index)=> (
-
-          <CarouselC key={index} title={venue} venuesD={venueDescriptions[venue]} imageMap={ imageMap}/>
-          ))}
+            {venues.map((venue, index) => (
+              <CarouselC key={index} title={venue} imageMap={imageMap} />
+            ))}
           </div>
         </div>
 
         <h2 className="text-4xl">Top selection</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg-plus:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-5 mb-10">
-          {["Destination", "Decoration", "Food", "Mocktail/Cocktail"].map(
-            (category, index) => (
-              <div
-                key={index}
-                className="group relative bg-white shadow-lg p-4 rounded-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="w-full h-[230px] flex flex-col justify-center items-center relative overflow-hidden">
-                  <Image
-                    className="h-full w-full rounded-lg mb-2"
-                    src={`/img/venue${index + 1}.png`}
-                    alt={category}
-                    width={300}
-                    height={310}
-                  />
-                   {/* Gray Blur Overlay (appears on hover) */}
-                   <div className="absolute inset-0 bg-gray-200 opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
-
-
-                  {/* Hover Arrow Indicator */}
-                  <button className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 p-1.5 w- bg-white rounded border border-gray-200 hover:scale-105 cursor-pointer shadow-sm">
-                  {/* <Image src={"/icons/arrow.png"}
-                    className="w-9 h-7 object-cover object-center"
-                    alt="Arrow Right" width={50} height={50} /> */}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-black"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                <p className="font-bold">{category}</p>
-              </div>
-            )
-          )}
+          <Selection />
         </div>
       </div>
       <div className="container">

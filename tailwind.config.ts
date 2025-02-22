@@ -31,7 +31,8 @@ const config: Config = {
         'figma': "url('/img/figma.png')",
         'figma1': "url('/img/figma1-1.png')",
         'hero': "url('/img/wed.jpg')",
-        "costumize1":"url('/img/costumize1.png')"
+        "costumize1":"url('/img/costumize1.png')",
+        'gradient-radial': 'radial-gradient(circle at center, var(--tw-gradient-stops))',
       },
       backgroundSize: {
         'custom': '100% 100%', // Customize width here

@@ -7,6 +7,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter"; // 
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { UIProvider } from "@/context/PopUpContext";
+import GoToTop from "@/components/atoms/GoToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
           {children}
           </UIProvider>
         <Footer/>
+        <GoToTop/>
           {/* </PopupProvider> */}
         </AppRouterCacheProvider> 
         {/* </ClientLayout> */}

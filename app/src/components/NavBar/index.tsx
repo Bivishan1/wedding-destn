@@ -81,14 +81,12 @@ function NavBar() {
   }, []);
 
   return (
-    <div className={`relative mb-[64px]`}>
+    
       <nav
-        className={`font-semibold bg-[#e1306c] border-b-2 border-b-gray-600 ${
-          isHomePage ? "text-black" : "text-black"
-        } fixed top-0 left-0 w-screen z-50 transition-all duration-500 ease-in-out
+        className={`font-semibold ${isScrolled?"text-[#c03462]":""} sticky bg-[#e1306c] border-b-2 border-b-gray-600 text-black top-0 left-0 w-screen z-50 transition-all duration-500 ease-in-out h-[64px]
             ${showNavbar ? "translate-y-0" : "-translate-y-full"}`}>
         {/* translate-y-0 (visible) and -translate-y-full (hidden) */}
-        <div className="container xl: lg-plus:pl-[29px]">
+        <div className="container lg-plus:pl-[29px]">
           <div className="flex justify-between items-center h-16">
             {/* Branch Section */}
             <div className="flex items-center">
@@ -232,7 +230,7 @@ function NavBar() {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden fixed top-16 left-0 w-full transform ${
+          className={`md:hidden top-16 left-0 w-full transform ${
             isProfileOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out`}
         >
@@ -277,7 +275,7 @@ function NavBar() {
           </div>
         </div>
       </nav>
-    </div>
+    
   );
 }
 

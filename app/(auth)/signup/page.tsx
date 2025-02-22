@@ -24,7 +24,7 @@ export default function SignUp() {
 
   return (
     <div>
-      <div className="bg-red-50 min-h-screen">
+      <div className="bg-red-50 min-h-screen mt-[64px]">
         <div className="wrapper1 h-screen w-full bg-figma bg-custom bg-no-repeat flex items-center justify-center py-8">
           <div
             className="wrapper2 w-full sm:w-[70%] max-w-lg bg-figma1 bg-contain bg-center bg-no-repeat 

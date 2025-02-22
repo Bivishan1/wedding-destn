@@ -12,6 +12,15 @@
 
 }
 
+/* Tailwind configuration or custom CSS */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
 /* overwriting the styles in the base layer. */
 @layer base {
   h1 {

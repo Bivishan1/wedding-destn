@@ -14,7 +14,7 @@ const Plans = () => {
     {id:1, name:'Resorts0'},
     {id:2, name:'Resorts1'},
     {id:3, name:'Resorts2'}]
-    
+
   const vendors = [
     {id:1, name:'Photographers'},
     {id:2, name:'Lights'},
@@ -41,7 +41,7 @@ const Plans = () => {
   };
 
   return (
-    <div className="lg:w-[1207px] md:w-[550px] mx-auto flex justify-center gap-5">
+    <div className="lg:w-[1207px] md:w-[550px] mx-auto flex justify-center gap-5 pt-[64px]">
       {/* Sidebar */}
       <div className="filter-sidbar w-[328px]">
         <h1 className="text-xl font-medium">Filters</h1>

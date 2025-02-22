@@ -11,11 +11,23 @@ const CarouselC = ({
   button,
 }: {
   title: string;
-  venuesD: string;
+  venuesD?: string;
   imageMap: Record<string, string[]>;
   button?: string;
 }) => {
   const images = imageMap[title] || ["/img/default.png"]; // Fallback to a default image if no match
+  // const [activeIndex, setActiveIndex] = useState(0)
+  // const [isPaused, setIsPaused] = useState(false)
+
+  //automating image slideshow
+  // const goToNextSlide = useCallback(() => {
+  //   setActiveIndex((prevIndex) => (prevIndex + 1) % images.length)
+  // }, [images.length])
+
+ 
+
+  // const handleMouseEnter = () => setIsPaused(true)
+  // const handleMouseLeave = () => setIsPaused(false)
 
   return (
     <div className="destination-card flex flex-col rounded-lg overflow-hidden shadow-md bg-white">
@@ -23,8 +35,11 @@ const CarouselC = ({
         <Carousel
           className="h-96"
           placeholder="placeholder"
-          onPointerEnterCapture={undefined}
-          onPointerLeaveCapture={undefined}
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+        autoplay={true}          // Add this
+        autoplayDelay={2000}     // Add this (3000ms = 3 seconds)
+        loop={true}              // Add this
         >
           {images.map((src, index) => (
             <Image
@@ -39,8 +54,8 @@ const CarouselC = ({
         </Carousel>
         <Heart className="cursor-pointer" />
       </div>
-      <div className="card-content my-4">
-        <div className="heading flex flex-row justify-between mb-3">
+      <div className="card-content mt-4">
+        <div className="heading flex flex-row justify-between">
           <h3>{title}</h3>
           {button && (
             <button className="bg-red-900 text-white rounded-md px-3">
@@ -49,7 +64,7 @@ const CarouselC = ({
           )}
         </div>
 
-        <p>{venuesD || "No description available."}</p>
+        <p>{venuesD}</p>
       </div>
     </div>
   );

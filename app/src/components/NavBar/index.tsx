@@ -151,7 +151,7 @@ function NavBar() {
 
               <button
                 ref={desktopButtonRef}
-                className={` border  shadow-md relative flex justify-center items-center gap-2 h-[29px] rounded-2xl text-red-900 bg-white transition-all duration-200 transform hover:scale-95 lg:block ${
+                className={` p-1  shadow-md relative flex justify-center items-center gap-2 h-[29px] rounded-2xl text-red-900 bg-white transition-all duration-200 transform hover:scale-95 lg:block ${
                   isProfileOpen ? "rounded-b-none" : "rounded-2xl"
                 }`}
                 onClick={toggleMenu}

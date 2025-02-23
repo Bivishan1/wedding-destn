@@ -4,7 +4,6 @@ import Image from "next/image";
 // import Heart from "@/components/atoms/Heart";
 import CarouselC from "@/components/molecules/CarouselC";
 import Packages from "@/components/molecules/Packages";
-import GoToTop from "@/components/atoms/GoToTop";
 import FAQ from "@/components/FAQ";
 import Link from "next/link";
 import YourDestination from "@/components/molecules/YourDest";
@@ -91,27 +90,30 @@ export default function Home() {
 
       <section className="your-destination container mb-20 relative">
         {/* Base gradient background */}
-      <div className="absolute -inset-x-[30%] -inset-y-[30%] " style={{
-    background: `linear-gradient(
+        <div
+          className="absolute -inset-x-[30%] -inset-y-[30%] "
+          style={{
+            background: `linear-gradient(
       to bottom,
       transparent,
       #e76363 30%,
       #e76363 70%,
       transparent
     )`,
-    opacity: 0.3
-  }} />
-      
-      {/* Grid with vertical fade effect */}
-      <div 
-        className="absolute -inset-x-[30%] -inset-y-[30%]"
-        style={{
-          background: `
+            opacity: 0.3,
+          }}
+        />
+
+        {/* Grid with vertical fade effect */}
+        <div
+          className="absolute -inset-x-[30%] -inset-y-[30%]"
+          style={{
+            background: `
             linear-gradient(to right, #2b2b4a 1px, transparent 1px),
             linear-gradient(to bottom, #2b2b4a 1px, transparent 1px)
           `,
-          backgroundSize: '20px 20px',
-          mask: `
+            backgroundSize: "20px 20px",
+            mask: `
             linear-gradient(
               to bottom,
               transparent,
@@ -120,7 +122,7 @@ export default function Home() {
               transparent
             )
           `,
-          WebkitMask: `
+            WebkitMask: `
             linear-gradient(
               to bottom,
               transparent,
@@ -129,10 +131,10 @@ export default function Home() {
               transparent
             )
           `,
-          opacity: 0.07,
-          zIndex: 2
-        }}
-      />
+            opacity: 0.07,
+            zIndex: 2,
+          }}
+        />
 
         <h3 className="my-16 text-4xl relative z-10">Your Destination</h3>
 
@@ -238,7 +240,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <GoToTop />
     </div>
   );
 }

@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { SignUpFormValues } from "@/components/types/signup.types";
-import { GoogleIcon, WhatsAppIcon } from "../../../public/icons";
-import { Button } from "../../src/MTailwind";
+import { GoogleIcon, WhatsAppIcon } from "../../../../public/icons";
+import { Button } from "@/MTailwind";
 import Link from "next/link";
 
 export default function SignUp() {

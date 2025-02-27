@@ -1,6 +1,6 @@
 'use client';
 import { LoginFormValues } from "@/components/types/loginform.types";
-import { Button } from "../../src/MTailwind";
+import { Button } from "@/MTailwind";
 import { useRouter } from 'next/navigation';
  export default function LoginC() {
 

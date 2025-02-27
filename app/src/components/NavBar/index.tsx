@@ -113,7 +113,7 @@ function NavBar() {
                 Plans
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#AD1616] group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </Link>
-              <Link href="#destination" className="relative group">
+              <Link href="/destination" className="relative group">
                 Destination
                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#AD1616] group-hover:w-full transition-all duration-300 ease-in-out"></span>
               </Link>
@@ -251,7 +251,7 @@ function NavBar() {
                 Plans
               </a>
               <a
-                href="#destination"
+                href="/destination"
                 className="block px-3 py-2 text-white text-base font-medium hover:bg-gray-700 rounded-md"
                 // onClick={() => setIsOpen(false)}
               >

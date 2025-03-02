@@ -3,21 +3,18 @@
 import { createContext, useContext, useState } from 'react';
 
 type UIContextType = {
-  isCalendarOpen: boolean;
-  setIsCalendarOpen: (value: boolean) => void;
-  isProfileOpen: boolean;
-  setIsProfileOpen: (value: boolean) => void;
+  isOpen: boolean;
+  setisOpen: (value: boolean) => void;
 };
 
 const UIContext = createContext<UIContextType>({} as UIContextType);
 
 export const UIProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isOpen, setisOpen] = useState(false);
 
   return (
     <UIContext.Provider
-      value={{ isCalendarOpen, setIsCalendarOpen, isProfileOpen, setIsProfileOpen }}
+      value={{ isOpen, setisOpen}}
     >
       {children}
     </UIContext.Provider>

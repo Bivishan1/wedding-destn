@@ -1,3 +1,4 @@
+'use client';
 import PersonIcon from "public/icons/PersonIcon";
 import ShowHideIcon from "public/icons/ShowHideIcon";
 import { useSidebar } from "@/context/SidebarContext";
@@ -20,7 +21,7 @@ const Navbar = () => {
                         width={40}
                         height={40}
                       /> */}
-          <button className="text-gray-800" onClick={toggleSidebar} aria-label="Toggle sidebar">
+          <button className="text-gray-800 " onClick={toggleSidebar} aria-label="Toggle sidebar">
             <ShowHideIcon />
           </button>
         </div>
@@ -28,15 +29,18 @@ const Navbar = () => {
 
       {/* Admin Profile on the Right */}
       <div
-        className="flex items-center p-1 gap-2 h-[29px] rounded-2xl"
+        className="flex items-center px-4 py-2 gap-2 rounded-xl bg-red-900  text-white"
       >
         {/* Admin Profile Icon */}
+        <div className="admin-icon bg-white p-1 rounded-full text-red-800">
+
         <PersonIcon />
+        </div>
 
         {/* Admin Info */}
         <div>
-          <p className="font-semibold text-gray-800">Name</p>
-          <p className="text-sm text-gray-500">Admin</p>
+          <p className="font-medium text-lg ">Nishant</p>
+          <p className="text-sm ">Admin</p>
         </div>
       </div>
     </nav>

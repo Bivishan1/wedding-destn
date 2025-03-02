@@ -43,7 +43,7 @@ const Venues = () => {
 
   return (
     <div >
-     <Table initialVenues={initialVenues}/>
+     <Table initialVenues={initialVenues} searchParams={{ sortOrder: 'asc' }}/>
     </div>
   );
 };

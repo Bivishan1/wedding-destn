@@ -21,6 +21,7 @@
     "@mui/material-nextjs": "^6.3.1",
     "@mui/system": "^6.3.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
+    "fast-sort": "^3.4.1",
     "framer-motion": "^12.4.7",
     "next": "^15.1.5",
     "next-transpile-modules": "^10.0.1",

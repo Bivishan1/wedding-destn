@@ -44,7 +44,7 @@ const Card = ({ heading, count, icon }: CardProps) => {
   );
 };
 
-const Dashboard = () => {
+export default function Dashboard () {
   return (
     <div className="">
       <div className="dashboard-cards flex space-x-8">
@@ -56,4 +56,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+// export default Dashboard;

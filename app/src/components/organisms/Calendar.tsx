@@ -8,7 +8,7 @@ import 'react-date-range/dist/theme/default.css';
 
 const DateTimelineSelector = () => {
    // Get UI context values
-  const { isCalendarOpen, setIsCalendarOpen } = useUI();
+  const { isOpen, setisOpen } = useUI();
   const [selectedRange, setSelectedRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
@@ -59,14 +59,14 @@ const DateTimelineSelector = () => {
 
  // Use the custom hook
  useCloseOnOutsideClick(
-  isCalendarOpen,
+  isOpen,
   calendarRef as React.RefObject<HTMLElement>,
   [calendarButtonRef as React.RefObject<HTMLElement>],
-  () => setIsCalendarOpen(false)
+  () => setisOpen(false)
 );
 
   const handleDone = () => {
-    setIsCalendarOpen(false);
+    setisOpen(false);
     alert(
       `Selected Date Range: ${format(selectedRange.startDate, "MM/dd/yyyy HH:mm")} to ${format(
         selectedRange.endDate,
@@ -76,7 +76,7 @@ const DateTimelineSelector = () => {
   };
 
   const handleCancel = () => {
-    setIsCalendarOpen(false);
+    setisOpen(false);
   };
 
   return (
@@ -84,12 +84,12 @@ const DateTimelineSelector = () => {
       <button
         ref={calendarButtonRef}
         className="w-full py-2 text-black bg-white border border-red-500 rounded-[6px] hover:bg-red-600"
-        onClick={() => setIsCalendarOpen(!isCalendarOpen)}
+        onClick={() => setisOpen(!isOpen)}
       >
         Select Date and Timeline
       </button>
 
-      {isCalendarOpen && (
+      {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
           <div ref={calendarRef} className="bg-white rounded-lg shadow-lg p-4">
             <DateRangePicker

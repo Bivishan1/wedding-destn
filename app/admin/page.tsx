@@ -3,12 +3,12 @@ import Dashboard from '@/components/admin/dashboard';
 
 
 
-export default function AdminPage() {
+export default function Adminpage() {
   // const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   return (
-    <div className="flex h-screen">
+    <div className="min-h-screen">
     
-        <main className="p-4">
+        <main className="">
           <Dashboard />
         </main>
   

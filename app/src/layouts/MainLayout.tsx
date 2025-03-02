@@ -7,12 +7,12 @@ import GoToTop from "@/components/atoms/GoToTop";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
-      <AppRouterCacheProvider>
+  <>     
+   <AppRouterCacheProvider>
         {/* CssBaseline helps normalize the CSS */}
         <UIProvider>
           <Navbar />
-          {/* <PopupProvider> */}
+        {/* <PopupProvider> */}
           {children}
         </UIProvider>
         <Footer />
